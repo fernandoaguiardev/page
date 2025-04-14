@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fernando Aguiar - Projetos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+  <style>
+:root {
+  /* Tema escuro */
+  --bg-dark: #0d0d0d;
+  --text-dark: #e0e0e0;
+  --accent-dark: #e0c78d;
+  --gray-dark: #888;
+
+  /* Tema claro */
+  --bg-light: #fefefe;
+  --text-light: #111;
+  --accent-light: #b07c00;
+  --gray-light: #444;
+}
+
+[data-theme="dark"] {
+  --bg: var(--bg-dark);
+  --text: var(--text-dark);
+  --accent: var(--accent-dark);
+  --gray: var(--gray-dark);
+}
+
+[data-theme="light"] {
+  --bg: var(--bg-light);
+  --text: var(--text-light);
+  --accent: var(--accent-light);
+  --gray: var(--gray-light);
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Julius Sans One', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--accent);
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: center;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    section {
+      margin-top: 2rem;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid var(--accent);
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .em-desenvolvimento {
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--gray);
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .em-desenvolvimento span {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: bold;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--accent);
+      color: var(--bg);
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌗 Tema</button>
+
+  <h1>Fernando Aguiar - Projetos</h1>
+  <p>Bem-vindo ao meu repositório GitHub Pages! Aqui você vai encontrar algumas das páginas e projetos desenvolvidos por mim. Podem ser trabalhos da faculdade, exercícios de cursos online ou momentos de criatividade pessoal.</p>
+
+  <section>
+    <h2>🌱 Como Acessar</h2>
+    <ul>
+      <li>
+        <a href="https://fernandoaguiardev.github.io/page/alessios" target="_blank">Alessios</a> - Esta página foi criada com um design minimalista e responsivo, baseada em um exercício do curso fullstack da 
+        <a href="https://onebitcode.com/index.html" target="_blank">OneBitCode</a>.
+      </li>
+      <li>
+        <a href="https://fernandoaguiardev.github.io/page/cordelmoderno" target="_blank">Cordel Moderno</a> - Página dedicada ao poema <strong>Cordel Moderno</strong>, de 
+        <a href="https://www.recantodasletras.com.br/autor.php?id=9806" target="_blank">Milton Duarte</a>. O layout foi desenvolvido pelo professor 
+        <a href="https://github.com/gustavoguanabara" target="_blank">Gustavo Guanabara</a> e adaptado por mim.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🛠️ Tecnologias Utilizadas</h2>
+    <ul>
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <li>GitHub Pages (para hospedagem)</li>
+    </ul>
+  </section>
+
+  <div class="em-desenvolvimento">
+    <span>🔧</span>
+    <p><em>Em desenvolvimento...</em></p>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute("data-theme");
+      html.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    }
+  </script>
+</body>
+</html>
