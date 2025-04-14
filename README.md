@@ -1,26 +1,17 @@
-# Meu Portfólio Pessoal
+# Fernando Aguiar - Projetos 
 
-Bem-vindo ao meu portfólio online! Aqui você vai encontrar minhas páginas e projetos, criados para mostrar um pouco mais sobre o meu trabalho e minhas habilidades de desenvolvimento web.
-
-## 🚀 Páginas em Destaque
-
-### 1. [Alessios](https://fernandoaguiardev.github.io/page/alessios)
-Esta página foi criada com um design minimalista e responsivo, voltado para [insira aqui o objetivo ou o contexto do projeto]. A ideia principal foi focar na simplicidade e na facilidade de navegação, garantindo uma boa experiência de usuário em dispositivos móveis e desktops.
-
-### 2. [Cordel Moderno](https://fernandoaguiardev.github.io/page/cordelmoderno)
-Aqui, você encontrará uma página dedicada ao projeto **Cordel Moderno**, com foco na apresentação de [explique o objetivo da página ou projeto]. O layout foi desenvolvido para ser clean e intuitivo, valorizando o conteúdo visual e textual de forma clara.
-
-## 🛠️ Tecnologias Utilizadas
-- HTML5
-- CSS3 (com foco em design responsivo)
-- JavaScript (se aplicável)
-- GitHub Pages (para hospedagem)
+Bem-vindo ao meu repositório github pages! Aqui você vai encontrar algumas das páginas e projetos desenvolvidas mim. Podem ser trabalhos da faculdae, exercícios de cursos online ou momento de criatividade pessoal.
 
 ## 🌱 Como Acessar
 As páginas estão hospedadas no GitHub Pages, então você pode acessá-las diretamente nos links abaixo:
-- [Alessios](https://fernandoaguiardev.github.io/page/alessios)
-- [Cordel Moderno](https://fernandoaguiardev.github.io/page/cordelmoderno)
 
-## 📁 Estrutura do Projeto
-O repositório contém as seguintes pastas e arquivos:
+1. [Alessios](https://fernandoaguiardev.github.io/page/alessios) - Esta página foi criada com um design minimalista e responsivo, desenvolvida baseada em um exercício do curso fullstack da [Onebitcode](https://onebitcode.com/index.html)
 
+2. [Cordel Moderno](https://fernandoaguiardev.github.io/page/cordelmoderno) - Aqui, você encontrará uma página dedicada ao poema **Cordel Moderno**, de [Milton Duarte](https://www.recantodasletras.com.br/autor.php?id=9806). O layout foi desenvolvido pelo professor: [Gustavo Guanabara](https://github.com/gustavoguanabara) e adaptado por mim
+
+## 🛠️ Tecnologias Utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
+- GitHub Pages (para hospedagem)
