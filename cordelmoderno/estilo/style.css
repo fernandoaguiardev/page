@@ -1,0 +1,134 @@
+@charset 'UTF-8'; /* Define a codificação de caracteres como UTF-8 */
+
+/* Importa fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Farsan&family=Passion+One:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Farsan&display=swap');
+
+:root { 
+    /* Variáveis CSS para as fontes */
+    --fonte1: 'Passion One', sans-serif;
+    --fonte2: 'Farsan', sans-serif;
+} 
+
+*{
+    /* Remove margem e padding de todos os elementos */
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    /* Define altura mínima do documento e cor de fundo */
+    min-height: 100vw;
+    background-color: var(--tom05);
+}
+
+/* Definição da paleta de cores */
+:root{
+    --tom01: 	#efe9d6; /* Tom claro */
+    --tom02:    #dfd3ad; /* Tom intermediário */
+    --tom03:    #a39b76; /* Tom escuro intermediário */
+    --tom04:    #ad8759; /* Tom mais quente */
+    --tom05:    #473821; /* Tom marrom escuro */
+    --tom06:    #17120b; /* Tom quase preto (extra) */
+    --tom06_transparente: #17120bb0; /* Tom extra com transparência */
+    --tom07: 	#fffaea; /* Tom claro (extra) */
+}
+
+header{
+    /* Estilização do cabeçalho */
+    background-color: var(--tom06); /* Fundo escuro */
+    color: var(--tom07); /* Texto claro */
+    text-align: center;
+    font-family: var(--fonte1); /* Usa a primeira fonte */
+    font-variant: small-caps; /* Pequenas maiúsculas */
+}
+
+header > h1{
+    /* Estilo do título no cabeçalho */
+    padding-top: 50px;
+    /*text-transform: uppercase;*/ /* Comentado: transforma o texto em maiúsculas */
+    font-size: 10vw; /* Tamanho dinâmico baseado na largura da viewport */
+}
+
+header > p{
+    /* Estilo do parágrafo no cabeçalho */
+    padding-bottom: 50px;
+    font-size: 20pt;    
+}
+
+a{
+    /* Estilo dos links */
+    color: var(--tom02); /* Cor do link */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bolder; /* Negrito */
+}
+
+a:hover{
+    /* Estilo do link ao passar o mouse (hover) */
+    text-decoration: underline; /* Sublinha o link */
+}
+
+section{
+    /* Estilo das seções */
+    padding: 70px 20px;
+    font-family: var(--fonte2); /* Usa a segunda fonte */
+    font-size: 28pt;
+}
+
+section.normal{
+    /* Estilo específico para seções com a classe 'normal' */
+    padding-bottom: 30px;
+    background-color: var(--tom01); /* Fundo claro */
+    color: var(--tom06); /* Texto escuro */
+    box-shadow: inset 0px 0px 1px 1.7px rgba(0, 0, 0, 0.446);
+}
+
+section.imagem{
+    /* Estilo específico para seções com a classe 'imagem' */
+    background-color: var(--tom06); /* Fundo escuro */
+    color: var(--tom07); /* Texto claro */
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.500);/*Sombra no texto*/
+    padding-left: 20px; /*Desloca para a direita para dar um efeito 3D*/
+    
+    /*Configurações comuns às duas imagens*/
+    background-size: cover; /* Cobre toda a área */
+    background-position: left top; /* Posição da imagem */
+    background-attachment: fixed; /* A imagem fica fixa ao rolar a página */
+}
+
+#img01{
+    /* Estilo da primeira seção com imagem de fundo */
+    background-image: url('../imagens/background001.jpg');
+
+}
+
+#img02{
+    /* Estilo da segunda seção com imagem de fundo */
+    background-image: url('../imagens/background002.jpg');
+}
+
+section.imagem > p {
+    /* Estilo dos parágrafos dentro de seções com a classe 'imagem' */
+    display: inline-block;
+    padding: 20px;
+    background-color: var(--tom06_transparente); /* Fundo com transparência */
+    color: var(--tom07); /* Texto claro */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+section.normal > p{
+    /* Estilo dos parágrafos dentro de seções com a classe 'normal' */
+    padding: 5px;
+    padding-bottom: 2em;
+}
+
+footer{
+    /* Estilo do rodapé */
+    background-color: var(--tom05); /* Fundo escuro */
+    color: var(--tom07); /* Texto claro */
+    font-family: var(--fonte1); /* Usa a primeira fonte */
+    font-variant: small-caps;
+    text-align: center;
+    padding: 10px;
+    font-size: 14pt;
+}

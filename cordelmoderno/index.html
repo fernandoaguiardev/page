@@ -1,89 +1,108 @@
 <!DOCTYPE html>
-<html lang="pt-BR"> <!-- Declaração do tipo de documento e linguagem do conteúdo como português do Brasil -->
+<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
 <head>
     <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a responsividade para diferentes tamanhos de tela -->
-    <title>Cordel Moderno</title> <!-- Título da página que aparecerá na aba do navegador -->
-    <link rel="stylesheet" href="style.css"> <!-- Importa o arquivo de estilo CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade para mobile (ajusta a escala da página ao dispositivo) -->
+    <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon"> <!-- Ícone que aparece na aba do navegador (favicon) -->
+    <title>Cordel Moderno</title> <!-- Título da página exibido na aba do navegador -->
+    <link rel="stylesheet" href="estilo/style.css"> <!-- Link para o arquivo CSS externo, que estiliza a página -->
 </head>
 <body>
-    <header>
-        <h1>Cordel Moderno</h1> <!-- Título principal do site -->
-        <p>Por <strong><a href="https://www.recantodasletras.com.br/poesias/3186743" target="_blank" rel="external">Milton Duarte</a></strong></p> <!-- Parágrafo com link para o autor Milton Duarte, abrindo em nova aba -->
+
+    <header> <!-- Cabeçalho da página -->
+        <h1>
+            Cordel Moderno 
+        </h1>
+        <p>
+            Por <a href="https://www.recantodasletras.com.br/poesias/3186743">Milton Duarte</a> <!-- Link para o autor da poesia -->
+        </p>
     </header>
 
-    <div class="back_noimg">
-        <p class="texto_normal">Estou ficando cansado
-            Da tal tecnologia
-            Só se fala por e-mail
-            Mensagem curta e fria
-            Twitter e Facebook
-            Antes que eu caduque
-            Vou dizer tudo em poesia.</p> <!-- Primeiro parágrafo de texto normal com o estilo aplicado via CSS -->
-    </div>
+    <section class="normal"> <!-- Primeira seção com classe 'normal', usada para estilização -->
+        <p>
+            Estou ficando cansado <br> <!-- O <br> adiciona uma quebra de linha dentro do parágrafo -->
+            Da tal tecnologia<br>
+            Só se fala por e-mail<br>
+            Mensagem curta e fria<br>
+            Twitter e Facebook<br>
+            Antes que eu caduque<br>
+            Vou dizer tudo em poesia.
+        </p>
+    </section>
 
-    <div id="img1">
-        <p class="texto_imagem">Não é mais como era antes
-            É tudo abreviado
-            "Você" só tem duas letras
-            O "O" e o "E" foi riscado
-            Para declarar o amor
-            Basta botar uma flor
-            E um coração desenhado.</p> <!-- Texto com estilo especial para imagens de fundo -->
-    </div>
+    <section class="imagem" id="img01"> <!-- Seção com a classe 'imagem' e ID 'img01', o ID permite a estilização específica dessa seção -->
+        <p>
+            Não é mais como era antes<br>
+            É tudo abreviado<br>
+            "Você" só tem duas letras<br>
+            O "O" e o "E" foi riscado<br>
+            Para declarar o amor<br>
+            Basta botar uma flor<br>
+            E um coração desenhado.
+        </p>
+    </section>
+    
+    <section class="normal"> <!-- Outra seção com classe 'normal' -->
+        <p>
+            Arroba agora não pesa<br>
+            É parte de um endereço<br>
+            Ponto final nem se usa<br>
+            Ou vai até no começo<br>
+            Agora é .com<br>
+            Se o saite é muito bom<br>
+            Ele vale um alto preço.
+        </p>
+    
+        <p>
+            Pra piorar a liguagem<br>
+            O emoticom é um risco<br>
+            Tem símbolo para tudo<br>
+            Ponto e vírgula e um asterisco<br>
+            Um beijo significa<br>
+            Pra entender como fica<br>
+            Decifre esse rabisco.
+        </p>
+    </section>
 
-    <div class="back_noimg">
-        <p class="texto_normal">Arroba agora não pesa
-            É parte de um endereço
-            Ponto final nem se usa
-            Ou vai até no começo
-            Agora é .com
-            Se o saite é muito bom
-            Ele vale um alto preço.</p> <!-- Outro parágrafo com estilo normal -->
-    </div>
+    <section class="imagem" id="img02"> <!-- Seção com classe 'imagem' e ID 'img02' -->
+        <p>
+            Tenho saudade das cartas<br>
+            Escritas com a própria mão<br>
+            Mandava no mês de Junho<br>
+            Só chegava no Verão<br>
+            Mas matava a saudade<br>
+            Era texto de verdade<br>
+            Nas linhas do coração.<br>
+        </p>
+    </section>
+    
+    <section class="normal"> <!-- Última seção com a classe 'normal' -->
+        <p>
+            Agora, escrevo e envio<br>
+            Chegando na mesma hora<br>
+            Mas quando vou prosear<br>
+            A pessoa foi embora<br>
+            Abriu outro aplicativo<br>
+            O mundo ficou cativo<br>
+            Da tecnologia do agora.
+        </p>
+    
+        <p>
+            Felizmente, pra orar<br>
+            Não precisa de internet<br>
+            Deus escuta todo mundo<br>
+            Se quiser, faça esse teste<br>
+            Dois pontos são dois joelhos<br>
+            Seus lábios são aparelhos<br>
+            Deixe que Deus interprete.
+        </p>
+    </section>
 
-    <div class="back_noimg">
-        <p class="texto_normal">Pra piorar a liguagem
-            O emoticom é um risco
-            Tem símbolo para tudo
-            Ponto e vírgula e um asterisco
-            Um beijo significa
-            Pra entender como fica
-            Decifre esse rabisco.</p> <!-- Mais um parágrafo de texto normal -->
-    </div>
-
-    <div id="img2">
-        <p class="texto_imagem">Tenho saudade das cartas
-            Escritas com a própria mão
-            Mandava no mês de Junho
-            Só chegava no Verão
-            Mas matava a saudade
-            Era texto de verdade
-            Nas linhas do coração.</p> <!-- Parágrafo com estilo de texto sobre imagem -->
-    </div>
-
-    <div class="back_noimg">
-        <p class="texto_normal">Agora, escrevo e envio
-            Chegando na mesma hora
-            Mas quando vou prosear
-            A pessoa foi embora
-            Abriu outro aplicativo
-            O mundo ficou cativo
-            Da tecnologia do agora.</p> <!-- Outro parágrafo de texto normal -->
-    </div>
-
-    <div class="back_noimg">
-        <p class="texto_normal">Felizmente, pra orar
-            Não precisa de internet
-            Deus escuta todo mundo
-            Se quiser, faça esse teste
-            Dois pontos são dois joelhos
-            Seus lábios são aparelhos
-            Deixe que Deus interprete.</p> <!-- Último parágrafo de texto normal -->
-    </div>
-
-    <footer>
-        <p>Site criado por <a href="https://github.com/gustavoguanabara" target="_blank" rel="external"><strong>Gustavo Guanabara</strong></a> para o <strong><a href="https://www.cursoemvideo.com/" target="_blank" rel="external">CursoemVideo</a></strong></p> <!-- Rodapé com links para o GitHub de Gustavo Guanabara e o Curso em Vídeo -->
+    <footer> <!-- Rodapé da página -->
+        <p>Site criado por <a href="https://github.com/gustavoguanabara" target="_blank" rel="external">Gustavo Guanabara</a> para o <a href="">CursoemVideo</a></p> <!-- Créditos e links externos -->
+        <p>Reproduzido e adaptado por <strong><a href="https://github.com/fernandoaguiardev" target="_blank" rel="external">Fernando Aguiar</a></strong></p>
+        <p>Paleta de cores usada: <a href="https://www.color-hex.com/color-palette/1050414" target="_blank" rel="external">brown vintage travel</a></p> <!-- Link para a paleta de cores usada no design -->
     </footer>
+        
 </body>
 </html>
