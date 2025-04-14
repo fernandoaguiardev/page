@@ -1,0 +1,11 @@
+@charset "UTF-8";
+@media (max-width: 500px) {
+    header, header > nav {
+        flex-flow: column nowrap;
+    
+    }
+    header > nav > a {
+        width: 90vw;
+    }
+
+}

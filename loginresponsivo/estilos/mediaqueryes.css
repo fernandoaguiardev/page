@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+/* 
+Breakpoints para dispositivos
+------------------------------
+- Mobile: até 768px
+- Tablet: 769px a 1024px
+- Desktop: 1025px a 1440px
+- Large Desktop: acima de 1440px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Estilos para tablets */
+    body{
+        background-image: linear-gradient(to bottom, #4437F0, #3765F0);
+    }
+    section#container{
+        width: 60vw;
+    }
+    section > div#imagem{
+        float: left;
+        background: var(--roxo) url('../media/pattern_768.jpg');
+        background-size: cover;
+        width: 20vw;
+        height: 499px;
+        border-radius: 16px 0 0 16px;
+    }
+    section > div#formulario > p{
+        font-size: 0.9em;
+    }
+    label, #bsubmit{
+        margin-left:20px
+    }
+    div#container_submit > input{
+        display: inline;
+        width: 120px;
+        padding: 10px;
+    }
+    .caixa > input{
+        width: 205px;
+    }
+
+}
+
+@media (min-width: 1025px) {
+    /* Estilos para desktops e large desktops*/
+    body{
+        background-image: linear-gradient(to bottom, #4437F0, #3765F0, #37A0F0);
+    }
+    section#container{
+        width: 80vw;
+    }
+    section > div#imagem{
+        float: right;
+        background: var(--roxo) url('../media/pattern_1500.jpg');
+        background-size: cover;
+        width: 30vw;
+        height: 499px;
+        border-radius: 0px 16px 16px 0px;
+    }
+    section > div#formulario > p{
+        font-size: 1em;
+    }
+    label, #bsubmit{
+        margin-left:20px
+    }
+    div#container_submit > input{
+        display: inline;
+        width: 120px;
+        padding: 10px;
+    }
+    .caixa > input{
+        width: 205px;
+    }
+}

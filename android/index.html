@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 permite symbols e acentos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta o layout para dispositivos móveis -->
+    <title>Curiosidades sobre Tecnologia</title> <!-- Título da página, exibido na aba do navegador -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"> <!-- Ícone do site exibido na aba do navegador -->
+    <link rel="stylesheet" href="style.css"> <!-- Conecta o arquivo CSS para estilizar a página -->
+</head>
+<body>
+    <header><!--Cabeçalho do site-->
+        <h1>Curiosidades de Tecnologia</h1> <!-- Título principal da página -->
+        <p>Tudo aquilo que você sempre quis saber sobre o mundo Tech, em um único lugar</p> <!-- Descrição ou slogan do site -->
+        
+        <!-- Navegação principal com links de menu -->
+        <nav>
+            <a href="#" target="_blank">Home</a> <!-- Link para a página inicial -->
+            <a href="#" target="_blank">Notícias</a> <!-- Link para a página de notícias -->
+            <a href="#" target="_blank">Curiosidades</a> <!-- Link para a página de curiosidades -->
+            <a href="#" target="_blank">Fale conosco</a> <!-- Link para a página de contato -->
+        </nav>
+    </header>
+
+    <!-- Seção principal de conteúdo -->
+    <main id="esqueleto">
+        <h1>História do Mascote do Android</h1> <!-- Título da seção principal -->
+        <p>
+            Provavelmente você sabe que o sistema operacional Android, mantido pelo Google, é um dos mais utilizados para dispositivos móveis em todo o mundo. Mas talvez você não saiba que o seu simpático mascote tem um nome e uma história muito curiosa? Pois acompanhe esse artigo para aprender muita coisa sobre esse robozinho.
+        </p>
+        
+        <h2>A primeira versão</h2> <!-- Subtítulo -->
+        <p>
+            A primeira tentativa de criar um mascote surgiu em 2007 e veio de um desenvolvedor chamado Dan Morrill. Ele conta que abriu o Inkscape (software livre para vetorização de imagens) e criou sua própria versão de robô. O objetivo era apenas personificar o sistema apenas para a sua equipe, não existia nenhuma solicitação da empresa para a criação de um mascote.
+        </p>
+        <picture>
+            <source media="(min-width: 768px)" srcset="img/dan-droids.png">
+            <img id="dandroids" src="img/dan-droids-pq.png" alt="dan-droids"> <!-- Imagem da primeira versão do mascote -->
+        </picture>
+        <p>Essa primeira versão bizarra até foi batizada, em homenagem ao seu criador, seriam os Dandroids.</p>
+        
+        <h2>Surge um novo mascote</h2> <!-- Subtítulo -->
+        <p>
+            A ideia de ter um mascote foi amadurecendo e a missão foi passada para uma profissional da área. A ilustradora Russa Irina Blok, também funcionária do Google, ficou com a missão de representar o pequeno robô de uma maneira mais agradável.
+        </p>
+        <picture>
+            <source media="(min-width: 768px)" srcset="img/irina-blok.jpg">
+            <img id="irina-blok" src="img/irina-blok-pq.jpg" alt="irina-blok"> <!-- Imagem da ilustradora Irina Blok -->
+        </picture>
+        <p>A ideia principal da Irina era representar tudo graficamente com poucos traços e de forma mais chapada. O desenho também deveria gerar identificação rápida com quem o olha. Surgiu então o Bugdroid, o novo mascote do Android.</p>
+        <img id="bugdroid" src="img/bugdroid.png" alt="bugdroid"> <!-- Imagem do Bugdroid, novo mascote do Android -->
+        <p>A principal inspiração para os traços do novo Bugdroid veio daqueles bonequinhos que ilustram portas de banheiro para indicar o gênero de cada porta. Conta a lenda que a artista estava criando em sua mesa no escritório do Google e olhou para o lado dos banheiros e a identificação foi imediata: simples, limpo, objetivo.</p>
+        
+        <!-- Vídeo do YouTube embutido -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/leCGI9flgbE?si=HPTvHMf42Sudih0P" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <!-- Seção extra com informações adicionais -->
+        <aside id="extra">
+            <h1>Quer aprender mais?</h1> <!-- Título da seção extra -->
+            
+            <p id="p_aside">
+                Outro assunto curioso em relação ao Android é que cada versão sempre foi nomeada em homenagem a um doce, em ordem alfabética a partir da versão 1.5 até a 9.0.
+            </p>
+            <div id="container"> <!-- Contêiner para listas -->
+                <div class="lista">
+                    <ul> <!-- Lista de versões do Android -->
+                        <li>1.5 - Cupcake</li>
+                        <li>1.6 - Donut</li>
+                        <li>3.0 - Eclair</li>
+                        <li>2.2 - Froyo</li>
+                        <li>2.3 - Gingerbread</li>
+                        <li>3.0 - Honeycomb</li>
+                        <li>4.0 - Ice Cream Sandwich</li>
+                        <li>1.5 - Cupcake</li>
+                        <li>1.6 - Donut</li>
+                        <li>3.0 - Eclair</li>
+                        <li>2.2 - Froyo</li>
+                        <li>2.3 - Gingerbread</li>
+                        <li>3.0 - Honeycomb</li>
+                        <li>4.0 - Ice Cream Sandwich</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <p>Então é isso! Espero que você tenha gostado do nosso artigo com essa curiosidade sobre o sistema Android e seu simpático mascote.</p>
+    </main>
+
+    <!-- Rodapé da página -->
+    <footer>
+        <p>Site criado por &copy;&trade; &Sigma; Sigma Solutions. Paleta usada: 
+        <a href="https://www.color-hex.com/color-palette/1294" target="_blank" type="external" class="externo">&copy;&trade; Beautiful Blues Color Palette</a>
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>_blank</title>
+        <link rel="stylesheet" href="estilos/style.css">
+        <link rel="stylesheet" href="estilos/mediaqueryes.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> <!-- key icon-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> <!-- Person icon-->
+    </head>
+    <body>
+        <main>
+            <section id="container">
+                <div id="imagem">
+                    <!--Fiz as alterações no próprio media query:                     
+                        <picture>
+                        <source srcset="media/pattern_360.jpg" media="(max-width: 767px)">
+                        <source srcset="media/pattern_768.jpg" media="(max-width: 991px)">
+                        <source srcset="media/pattern_1500.jpg" media="(min-width: 992px)">
+                        <img src="media/pattern_1500.jpg" alt="Padrão de fundo">
+                    </picture> -->
+                </div>                             
+                <div id="formulario">
+                    <h1>Login</h1>
+                    <p>Seja bem vindo(a) novamente. Faça login para acessar o seu ambiente</p>
+                    <form action="banco_dados/login.php" method="post" autocomplete="on">
+                        <div id="container_preencher">
+                            <div class="caixa">
+                                <label for="ilogin">
+                                    <span class="material-symbols-outlined" id="iconperson">account_box</span>
+                                </label>
+                                <input class="texto" type="text" name="login" id="ilogin" placeholder="example@example.com" autocomplete="email" required>
+                            </div>
+                            <div class="caixa">
+                                <label for="isenha">
+                                    <span class="material-symbols-outlined" id="iconkey">key</span>
+                                </label>
+                                <input class="texto" type="password" name="senha" id="isenha" placeholder="--------" autocomplete="current-password" required>
+                            </div>
+                            <div id="container_submit">
+                            <input id="bsubmit" type="submit" value="Entrar">
+                            <input type="reset" value="Esqueci a senha">
+                            </div>    
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+    <script></script>
+    </body>
+</html>

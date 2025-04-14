@@ -1,0 +1,105 @@
+@charset "UTF-8"; /* Define a codificação de caracteres como UTF-8 */
+
+/* Importa fontes usadas por Gustavo Guanabara */
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+/* Configurações globais */
+* {
+    margin: 0px; /* Remove todas as margens de todos os elementos */
+    padding: 0px; /* Remove todo o padding de todos os elementos */
+}
+
+/* Define variáveis de fontes para serem usadas no projeto */
+:root {
+    --fonte1: Verdana, Geneva, Tahoma, sans-serif; /* Fonte padrão */
+    --fonte2: 'Sriracha', cursive; /* Fonte cursiva secundária */
+    --fonte3: 'Passion One', cursive; /* Fonte cursiva principal */
+}
+
+html, body {
+    min-height: 100vh; /* Garante que a altura mínima da página seja 100% da altura da viewport */
+    background-color: darkgray; /* Cor de fundo cinza escuro */
+    font-family: var(--fonte1); /* Usa a fonte padrão */
+}
+
+header {
+    color: white; /* Cor do texto do header: branco */
+    background: black; /* Fundo do header: preto */
+}
+
+header h1 {
+    text-align: center; /* Centraliza o texto do título */
+    padding-top: 50px; /* Espaçamento no topo do título */
+    font-family: var(--fonte1); /* Usa a fonte padrão */
+    font-variant: small-caps; /* Usa letras maiúsculas pequenas */
+    font-size: 7vw; /* Tamanho da fonte proporcional à largura da viewport */
+}
+
+header p, header a {
+    padding: 15px; /* Espaçamento interno de 15px */
+    color: white; /* Texto em branco */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove sublinhado dos links */
+    font-family: var(--fonte3); /* Usa a fonte principal */
+    font-size: 1.5vw; /* Tamanho da fonte proporcional à largura da viewport */
+}
+
+header a:visited {
+    color: white; /* Cor do link visitado: branco */
+}
+
+#img1 {
+    background-image: url('background001.jpg'); /* Imagem de fundo */
+    height: 120vh; /* Altura de 120% da viewport */
+    background-size: cover; /* Imagem cobre toda a área */
+    background-attachment: fixed; /* Fundo fixo */
+    background-position: center center; /* Centraliza a imagem */
+}
+
+#img2 {
+    background-image: url('background002.jpg'); /* Outra imagem de fundo */
+    height: 100vh; /* Altura de 100% da viewport */
+    background-size: cover; /* Imagem cobre toda a área */
+    background-attachment: fixed; /* Fundo fixo */
+    background-position: center center; /* Centraliza a imagem */
+}
+
+.back_noimg {
+    background-color: rgb(255, 255, 255); /* Cor de fundo branca */
+    height: 120vh; /* Altura de 120% da viewport */
+    background-size: cover; /* Fundo cobre toda a área */
+    background-attachment: fixed; /* Fundo fixo */
+    background-position: center center; /* Centraliza o fundo */
+}
+
+.texto_normal {
+    color: rgb(0, 0, 0); /* Texto preto */
+    font-family: var(--fonte2); /* Usa a fonte cursiva secundária */
+    font-size: 3.7vw; /* Tamanho da fonte proporcional à largura da viewport */
+    max-width: 50vw; /* Largura máxima de 50% da viewport */
+    padding-top: 110px; /* Espaçamento no topo */
+}
+
+.texto_imagem {
+    color: rgb(255, 255, 255); /* Texto branco */
+    font-family: var(--fonte2); /* Usa a fonte cursiva secundária */
+    font-size: 3.5vw; /* Tamanho da fonte proporcional à largura da viewport */
+    max-width: 50vw; /* Largura máxima de 50% da viewport */
+    background-color: rgba(0, 0, 0, 0.350); /* Fundo semi-transparente preto */
+    padding-top: 110px; /* Espaçamento no topo */
+}
+
+footer {
+    color: white; /* Texto branco */
+    background-color: black; /* Fundo preto */
+    padding: 20px; /* Espaçamento interno de 20px */
+    text-align: center; /* Centraliza o texto */
+}
+
+footer a {
+    color: white; /* Links brancos */
+    font-family: var(--fonte3); /* Usa a fonte principal */
+    font-size: 1.2vw; /* Tamanho da fonte proporcional à largura da viewport */
+    text-decoration: none; /* Remove sublinhado dos links */
+}

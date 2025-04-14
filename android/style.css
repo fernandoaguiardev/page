@@ -1,0 +1,319 @@
+@charset "UTF-8";
+
+/* Importação de fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@font-face {
+    font-family: 'Android';
+    src: url(fontes/idroid.otf) format('opentype');
+    font-weight: lighter;
+}
+
+/*
+Paleta de cores utilizadas:
+    #125d72	(18,93,114)
+    #14a2ba	(20,162,186)
+    #e7f6f9	(231,246,249)
+    #efe62f	(239,230,47)
+    #d9d9d9	(217,217,217)
+*/
+/*Paleta de Cores:
+
+As variáveis definidas em :root são usadas para garantir consistência nas cores e facilitar alterações futuras.
+:root{
+    --principal:      #125d72;
+    --análoga:        #14a2ba;
+    --complementar:   #efe62f;
+    --branco_ajustado:#e7f6f9;
+    --preto_ajustado: rgb(0, 15, 20);
+    --neutra:         #d9d9d9;
+    
+}
+*/
+:root{
+    --principal:      #03396c;
+    --análoga:        #005b96;
+    --complementar:   #6497b1;
+    --branco_ajustado:#F8F9FA;
+    --preto_ajustado: #343A40;
+    --neutra:         #CED4DA;
+    
+    --fonte_texto: sans-serif;
+    --fonte_titulo: 'Orbitron', Verdana, Geneva, Tahoma, sans-serif;
+    --fonte_pixels: 'Android', Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+/* Reseta a margem e o padding de todos os elementos, e define box-sizing como border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a.externo::after{
+    content: '\00A0\1F517';
+}
+
+/* Estilo geral para o corpo da página */
+body {
+    background-color: var(--neutra); /* Cor de fundo clara para o corpo da página */
+}
+
+/* Estilo para o cabeçalho fixo */
+header {
+    background-image: linear-gradient(var(--principal), var(--análoga)); /* Gradiente de fundo para o cabeçalho */
+    font-size: 15px; /* Define o tamanho da fonte no cabeçalho */
+    font-family: var(--fonte_texto); /* Fonte padrão */
+    position: fixed; /* Fixa o cabeçalho no topo da página */
+    top: 0; /* Posiciona o cabeçalho no topo */
+    width: 100%; /* Faz o cabeçalho ocupar toda a largura da tela */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros conteúdos */
+    left: 0; /* Garante que o cabeçalho fique alinhado à esquerda */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra ao cabeçalho para destaque */
+}
+
+/* Estilo do título principal dentro do header */
+header > h1 {
+    font-family: var(--fonte_titulo); /* Fonte personalizada para o título */
+    text-align: center; /* Centraliza o texto */
+    color: var(--branco_ajustado); /* Cor do texto do título */
+    padding: 35px 0px 20px 0px; /* Espaçamento interno ao redor do título */
+    text-shadow: 2px 2px 0px var(--preto_ajustado); /* Adiciona sombra ao texto */
+}
+
+/* Estilo do parágrafo no header */
+header > p {
+    margin: 0%; /* Remove a margem ao redor do parágrafo */
+    padding: 6px; /* Adiciona espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    color: var(--complementar); /* Cor do texto do parágrafo */
+    font-family: var(--fonte_pixels); /* Fonte personalizada para o parágrafo */
+    font-size: 11pt; /* Tamanho da fonte */
+    text-shadow: 2px 2px 0px var(--preto_ajustado); /* Adiciona sombra ao texto */
+}
+
+/* Estilo da navegação dentro do header */
+header > nav {
+    font-family: var(--fonte_titulo); /* Fonte para os links de navegação */
+    color: var(--branco_ajustado); /* Cor do texto dos links */
+    background-color: var(--preto_ajustado); /* Cor de fundo para a navegação */
+    text-align: center; /* Centraliza o texto da navegação */
+    padding: 5px 0; /* Padding ao redor da navegação */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Adiciona sombra para destaque */
+}
+
+/* Estilo dos links na navegação */
+header > nav > a {
+    color: var(--neutra); /* Cor neutra para os links */
+    padding: 5px 15px; /* Espaçamento interno dos links */
+    font-weight: bold; /* Negrito no texto dos links */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    border-radius: 2px; /* Arredonda os cantos dos links */
+    transition: background-color 0.15s ease, color 0.3s ease; /* Transição suave para mudanças de cor */
+}
+
+/* Estilo para links visitados */
+header > nav > a:visited {
+    color: var(--neutra); /* Cor dos links visitados */
+}
+
+/* Estilo para links quando o mouse passa por cima */
+header > nav > a:hover {
+    background-color: var(--neutra); /* Cor de fundo ao passar o cursor */
+    color: var(--preto_ajustado); /* Cor do texto ao passar o cursor */
+}
+
+/* Estilo para links ativos (quando clicados) */
+header > nav > a:active {
+    color: var(--análoga); /* Cor do texto quando o link está ativo */
+}
+
+/* Estilo para a seção principal de conteúdo */
+main#esqueleto {
+    background-color: var(--branco_ajustado); /* Cor de fundo branca para a seção */
+    padding-top: 150px; /* Espaçamento no topo para compensar a altura do header fixo */
+    margin-left: 15%; /* Margem à esquerda para centralizar o conteúdo */
+    margin-right: 15%; /* Margem à direita para centralizar o conteúdo */
+    box-shadow: 0px 0px 3px var(--preto_ajustado); /* Adiciona uma sombra ao conteúdo para destacar */
+}
+
+/* MEDIA QUERIES */
+
+/* Para dispositivos muito pequenos (menores que 480px, como celulares pequenos) */
+@media (max-width: 480px) {
+
+    /* Ajuste do main para dispositivos pequenos */
+    main#esqueleto {
+        padding-top: 120px; /* Reduz ainda mais o padding-top */
+        margin-left: 5%; /* Reduz as margens para otimizar o espaço */
+        margin-right: 5%;
+    }
+
+    /* Ajuste do título h1 no header */
+    header > h1 {
+        font-size: 16px; /* Reduz o tamanho da fonte do título em telas bem pequenas */
+        padding: 15px 0px 8px 0px; /* Ajusta o padding ao redor do título */
+    }
+
+    /* Ajuste do parágrafo no header */
+    header > p {
+        font-size: 9pt; /* Diminui o tamanho da fonte do parágrafo */
+    }
+
+    /* Ajuste dos links de navegação */
+    header > nav > a {
+        padding: 2px 8px; /* Reduz o padding dos links para caber melhor em telas pequenas */
+    }
+    
+}
+/* Para dispositivos com telas menores que 768px (tablets e celulares) */
+@media (max-width: 768px) {
+
+    /* Ajuste do main para telas menores */
+    main#esqueleto {
+        padding-top: 110px; /* Reduz o padding-top para telas menores */
+        margin-left: 10%; /* Reduz as margens laterais para mais espaço útil */
+        margin-right: 10%;
+    }
+
+    /* Ajuste do título h1 no header */
+    header > h1 {
+        font-size: 18px; /* Diminui o tamanho da fonte do título */
+        padding: 20px 0px 10px 0px; /* Reduz o padding ao redor do título */
+    }
+
+    /* Ajuste do parágrafo no header */
+    header > p {
+        font-size: 10pt; /* Diminui o tamanho do texto do parágrafo */
+        padding: 4px; /* Reduz o padding ao redor do parágrafo */
+    }
+
+    /* Ajuste da navegação */
+    header > nav {
+        padding: 3px 0; /* Diminui o padding na navegação */
+    }
+
+    /* Ajuste dos links de navegação */
+    header > nav > a {
+        padding: 3px 10px; /* Reduz o padding dos links para caber melhor em telas menores */
+    }
+    
+}
+
+
+
+main#esqueleto > h1, h2 {
+    color: var(--análoga); /* Cor do texto dos cabeçalhos */
+    font-family: var(--fonte_titulo); /* Fonte para os cabeçalhos */
+    font-size: 20px; /* Tamanho da fonte dos cabeçalhos */
+    text-align: center; /* Centraliza o texto dos cabeçalhos */
+    padding: 15px; /* Espaçamento interno ao redor dos cabeçalhos */
+    box-shadow: 0px 0px 3px var(--preto_ajustado);/*Sombra para dar efeito*/
+}
+
+main#esqueleto > p {
+    font-family: var(--fonte_texto); /* Fonte para o texto dos parágrafos */
+    font-size: 15px;
+    text-indent: 50px; /* Indenta o texto do parágrafo */
+    text-align: justify; /* Justifica o texto do parágrafo */
+    margin: 5px 25px; /* Margem ao redor dos parágrafos */
+}
+
+main#esqueleto img {
+    display: block; /* Faz com que a imagem seja um bloco */
+    margin: 0% auto; /* Centraliza horizontalmente a imagem */
+    max-width: 100%; /* Garante que a imagem não exceda a largura do contêiner */
+    height: auto; /* Mantém a proporção da altura da imagem */
+}
+
+main#esqueleto > iframe {
+    display: block; /* Faz com que o iframe seja um bloco */
+    margin: 0 auto; /* Centraliza horizontalmente o iframe */
+    max-width: 100%; /* Garante que o iframe não exceda a largura do contêiner */
+    height: 360px; /* Define a altura específica para o iframe */
+    border: none; /* Remove as bordas ao redor do iframe */
+}
+
+#container {
+    padding: 0px;
+    display: flex;
+    justify-content: center; /* Centraliza as listas no contêiner */
+    align-items: center;
+    flex-wrap: wrap; /* Ajusta para quebrar linha se necessário */
+}
+
+.lista {
+    width: 45%;
+    font-family: var(--fonte_texto);
+    font-size: 14px;
+    text-align: left; /* Alinha o conteúdo das listas à esquerda */
+    padding: 10px;
+}
+
+
+/* Estilo para a seção extra */
+aside#extra {
+    background-color: var(--neutra); /* Cor de fundo para a seção extra */
+    color: var(--preto_ajustado);
+    margin: 20px; /* Margem ao redor da seção extra */
+    border-radius: 0px 0px 7px 7px; /* Arredonda os cantos da seção extra */
+    padding: 0px; /* Padding ao redor do conteúdo da seção extra */
+    text-align: center; /* Centraliza o texto dentro da seção extra */
+}
+
+aside#extra > h1 {
+    text-indent: 35px; /* Indenta o texto do título */
+    color: var(--análoga); /* Cor do texto do título */
+    font-family: var(--fonte_titulo); /* Fonte para o título */
+    font-size: 20px; /* Tamanho da fonte do título */
+    margin-bottom: 20px; /* Margem abaixo do título */
+    padding: 15px;
+    box-shadow: 0px 0px 3px var(--preto_ajustado);/*Sombra para dar efeito*/
+}
+
+aside ul{
+    list-style-position: inside; /*Para as bolinhas ficarem dentro da margem*/
+    columns: 2;
+    list-style-type: '\2714\00A0\00A0'; /*Cheked + space*/
+}
+
+#p_aside {
+    font-family: var(--fonte_texto); /* Fonte para o texto da seção extra */
+    text-indent: 50px; /* Indenta o texto */
+    text-align: justify; /* Justifica o texto */
+    margin: 5px 25px; /* Margem ao redor do texto */
+}
+
+/* Estilo para o rodapé */
+footer {
+    background-color: var(--preto_ajustado); /* Cor de fundo para o rodapé */
+    text-align: center; /* Centraliza o texto no rodapé */
+    font-family: var(--fonte_titulo); /* Fonte para o texto do rodapé */
+    font-size: 11px;
+    padding: 3px; /* Padding ao redor do rodapé */
+    color: var(--complementar); /* Cor do texto no rodapé */
+
+}
+
+footer a {
+    padding: 5px 15px; /* Padding ao redor dos links */
+    font-weight: bold; /* Deixa o texto dos links em negrito */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    border-radius: 2px; /* Arredonda os cantos dos links ao passar o cursor */
+    transition: background-color 0.15s ease, color 0.3s ease; /* Transição suave para mudanças de cor */
+}
+
+footer a:visited {
+    color: var(--neutra); /* Cor dos links visitados */
+}
+
+footer a:hover {
+    background-color: var(--neutra); /* Cor de fundo dos links quando o cursor passa em cima */
+    color: var(--preto_ajustado); /* Cor do texto dos links quando o cursor passa em cima */
+}
+
+footer a:active {
+    color: var(--análoga); /* Cor do texto dos links quando clicados */
+}
