@@ -1,0 +1,19 @@
+/* smallview.css */
+
+/* Estilos para telas pequenas */
+@media (max-width: 600px) {
+
+    nav ul a {
+        font-size: 14pt;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+
+    nav ul a {
+        font-size: 8pt;
+        padding: 1rem;
+
+    }
+}

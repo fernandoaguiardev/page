@@ -45,7 +45,11 @@ nav ul a:hover {
 
 /*HEADER__IMG*/
 #header__img {
-    background-image: url("img/baner.jpg");
+    
+    background-image: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.466),
+    rgb(0, 0, 0)),
+    url("img/baner.jpg");
     background-size:cover;
     background-position:center;
     background-repeat: no-repeat;
@@ -95,6 +99,9 @@ nav ul a:hover {
 }
 
 .cardapio--item {
+    background-color: rgba(255, 255, 255, 0.048);
+    border-radius: 5px;
+    padding: 10px;
     text-align: center;
     width: 100%; /* Garante que o item respeita o grid */
 }
@@ -116,7 +123,7 @@ nav ul a:hover {
 }
 
 .cardapio--item p {
-    margin-top: 10px;
+    margin-top: 5px;
     font-weight: bold;
     color: rgba(255, 255, 255, 0.705);
 
@@ -125,6 +132,7 @@ nav ul a:hover {
 /*SOBRE*/
 #sobre {
     margin-top: 2rem;
+    padding: 3rem;
     background-color: rgba(202, 121, 62, 0.226);
     min-height: 25vh;
     text-align: center;
@@ -137,14 +145,13 @@ nav ul a:hover {
     font-weight: 300;
     font-family: "Julius Sans One", sans-serif;
     color: rgba(255, 255, 255, 0.705);
-    padding: 2rem;
 }
 
 #sobre > p {
     color: rgba(209, 201, 201, 0.705);
     font-size: 1.2rem;
     letter-spacing: 0.3rem;
-    padding: 0 5rem;
+    padding-top: 1rem;
 
 }
 
