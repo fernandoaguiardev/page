@@ -1,202 +1,213 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fernando Aguiar - Projetos</title>
   <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
   <style>
-:root {
-  --bg-dark: #0d0d0d;
-  --text-dark: #e0e0e0;
-  --accent-dark: #e0c78d;
-  --gray-dark: #888;
+    :root {
+      --bg-dark: #0d0d0d;
+      --text-dark: #e0e0e0;
+      --accent-dark: #e0c78d;
+      --gray-dark: #888;
 
-  --bg-light: #fefefe;
-  --text-light: #111;
-  --accent-light: #b07c00;
-  --gray-light: #444;
-}
+      --bg-light: #fefefe;
+      --text-light: #111;
+      --accent-light: #b07c00;
+      --gray-light: #444;
+    }
 
-[data-theme="dark"] {
-  --bg: var(--bg-dark);
-  --text: var(--text-dark);
-  --accent: var(--accent-dark);
-  --gray: var(--gray-dark);
-}
+    [data-theme="dark"] {
+      --bg: var(--bg-dark);
+      --text: var(--text-dark);
+      --accent: var(--accent-dark);
+      --gray: var(--gray-dark);
+    }
 
-[data-theme="light"] {
-  --bg: var(--bg-light);
-  --text: var(--text-light);
-  --accent: var(--accent-light);
-  --gray: var(--gray-light);
-}
+    [data-theme="light"] {
+      --bg: var(--bg-light);
+      --text: var(--text-light);
+      --accent: var(--accent-light);
+      --gray: var(--gray-light);
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Julius Sans One', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  padding: 2rem;
-  transition: background 0.3s, color 0.3s;
-}
+    body {
+      font-family: 'Julius Sans One', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+      transition: background 0.3s, color 0.3s;
+    }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: var(--accent);
-}
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--accent);
+    }
 
-p {
-  margin-bottom: 1rem;
-  text-align: center;
-  max-width: 800px;
-  margin-inline: auto;
-}
+    p {
+      margin-bottom: 1rem;
+      text-align: center;
+      max-width: 800px;
+      margin-inline: auto;
+    }
 
-section {
-  margin-top: 2rem;
-  max-width: 800px;
-  margin-inline: auto;
-}
+    section {
+      margin-top: 2rem;
+      max-width: 800px;
+      margin-inline: auto;
+    }
 
-ul {
-  list-style: none;
-  padding: 0;
-}
+    ul {
+      list-style: none;
+      padding: 0;
+    }
 
-li {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-left: 4px solid var(--accent);
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-}
+    li {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-left: 4px solid var(--accent);
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 1.3rem;
-  font-weight: bold;
-}
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
 
-a:hover {
-  color: var(--text);
-  text-decoration: underline;
-}
+    a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
 
-h2 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: var(--accent);
-}
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
 
-.em-desenvolvimento {
-  margin-top: 3rem;
-  text-align: center;
-  color: var(--gray);
-  font-size: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .em-desenvolvimento {
+      margin-top: 3rem;
+      text-align: center;
+      color: var(--gray);
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.em-desenvolvimento span {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
+    .em-desenvolvimento span {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
 
-.theme-toggle {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: 2px solid var(--accent);
-  color: var(--accent);
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-weight: bold;
-}
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: bold;
+    }
 
-.theme-toggle:hover {
-  background-color: var(--accent);
-  color: var(--bg);
-}
+    .theme-toggle:hover {
+      background-color: var(--accent);
+      color: var(--bg);
+    }
 
-.profile-pic {
-  text-align: center;
-  margin-bottom: 2rem;
-}
+    .profile-pic {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
 
-.profile-pic img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 3px solid var(--accent);
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
+    .profile-pic img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
 
-.profile-pic p {
-  margin-top: 0.5rem;
-  font-weight: bold;
-}
+    .profile-pic p {
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
 
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  text-align: center;
-}
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      text-align: center;
+    }
 
-.profile-inline {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
-}
-
+    .profile-inline {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+    }
   </style>
 </head>
+
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">🌗 Tema</button>
 
   <div class="header-container">
-    <img src="https://avatars.githubusercontent.com/u/182021101?v=4" alt="Foto de Fernando Aguiar" class="profile-inline">
+    <img src="https://avatars.githubusercontent.com/u/182021101?v=4" alt="Foto de Fernando Aguiar"
+      class="profile-inline">
     <h1>Fernando Aguiar - Projetos</h1>
-  </div>  
-  <p>Bem-vindo ao meu repositório GitHub Pages! Aqui você vai encontrar algumas das páginas e projetos desenvolvidos por mim. Podem ser trabalhos da faculdade, exercícios de cursos online ou momentos de criatividade pessoal.</p>
+  </div>
+  <p>Bem-vindo ao meu repositório GitHub Pages! Aqui você vai encontrar algumas das páginas e projetos desenvolvidos por
+    mim. Podem ser trabalhos da faculdade, exercícios de cursos online ou momentos de criatividade pessoal.</p>
 
   <section class="portifolio">
     <h2>🌱 Projetos</h2>
     <ul>
       <li>
-        <a href="https://fernandoaguiardev.github.io/page/samplelogin" target="_blank">Your Space</a> - Tela de login responsiva. Teste em seus dispositivos 
+        <a href="https://fernandoaguiardev.github.io/page/samplelogin" target="_blank">Your Space</a> - Tela de login
+        responsiva. Teste em seus dispositivos
       </li>
       <li>
-        <a href="https://fernandoaguiardev.github.io/page/cordelmoderno" target="_blank">Cordel Moderno</a> - Página dedicada ao poema <strong>Cordel Moderno</strong>, de 
-        <a href="https://www.recantodasletras.com.br/autor.php?id=9806" target="_blank">Milton Duarte</a>. O layout foi desenvolvido pelo professor 
+        <a href="https://fernandoaguiardev.github.io/page/cordelmoderno" target="_blank">Cordel Moderno</a> - Página
+        dedicada ao poema <strong>Cordel Moderno</strong>, de
+        <a href="https://www.recantodasletras.com.br/autor.php?id=9806" target="_blank">Milton Duarte</a>. O layout foi
+        desenvolvido pelo professor
         <a href="https://github.com/gustavoguanabara" target="_blank">Gustavo Guanabara</a> e adaptado por mim.
       </li>
       <li>
-        <a href="https://fernandoaguiardev.github.io/page/alessios" target="_blank">Alessios</a> - Esta página foi criada com um design minimalista e responsivo, baseada em um exercício do curso fullstack da 
+        <a href="https://fernandoaguiardev.github.io/page/alessios" target="_blank">Alessios</a> - Esta página foi
+        criada com um design minimalista e responsivo, baseada em um exercício do curso fullstack da
         <a href="https://onebitcode.com/index.html" target="_blank">OneBitCode</a>.
+      </li>
+      <li>
+        <a href="https://fernandoaguiardev.github.io/page/typeofdev" target="_blank">TypeOfDev</a> - Introdução ao
+        JavaScript, a página contem uma lógica simples que seta uma imagem e retorna uma mensagem de acordo com a
+        combinação dos dados
       </li>
     </ul>
   </section>
-
   <section>
     <h2>🛠️ Tecnologias Utilizadas</h2>
     <ul>
@@ -220,4 +231,5 @@ h2 {
     }
   </script>
 </body>
+
 </html>

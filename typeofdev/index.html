@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programador</title>
+    <link rel="stylesheet" href="estilização.css">
+</head>
+<body>
+    <header>
+        <div>Perfil do programador</div>
+
+    </header>
+
+    <section>
+
+        <div>
+            <h3>Prencha os dados para verificar:</h3>
+            <p>Ano de nascimento:
+                <input type="number" id="txtano" min="7" max="120">
+            </p>
+            <p>Sexo:
+                <input type="radio" name="radsex" id="masc" checked>
+                <label for="masc">Masculino</label>
+                <input type="radio" name="radsex" id="fem">
+                <label for="fem">Feminino</label>
+            </p>
+            <p><input type="button" value="Verificar" onclick="verificar()"></p>
+
+        </div> 
+        </div> 
+        <div>
+            <p id="msg"></p>
+        </div>
+        <img id="img" width="250px">
+
+    </section>
+
+    <footer>
+        <p>&copy; sigma_solutions.dev</p>
+    </footer>
+    <script src="interação.js"></script>
+    
+</body>
+</html>
