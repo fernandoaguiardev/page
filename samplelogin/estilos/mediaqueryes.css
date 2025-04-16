@@ -1,0 +1,134 @@
+@charset "UTF-8";
+@import "style.css";
+
+/* 
+Breakpoints para dispositivos
+------------------------------
+- Mobile: até 768px
+- Tablet: 769px a 1024px
+- Desktop: 1025px a 1440px
+- Large Desktop: acima de 1440px
+*/
+@media (max-width: 767px) {
+    .caixa {
+        display: flex;
+        align-items: center; /* Alinha os itens na vertical */
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px 0 0 5px;
+        width: 40px; /* Largura fixa para o ícone */
+        height: 40px; /* Altura fixa */
+    }
+
+    /* Ícones dentro do label */
+    #iconperson, #iconkey {
+        font-size: 1.5em; /* Ajusta o tamanho do ícone */
+        /* Centraliza o ícone dentro do label */
+        width: 150%;
+        text-align: center;
+    }
+    /* O input vai expandir para ocupar o restante do espaço */
+    .caixa > input {
+        flex: 1;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        background-color: var(--bgcolor1);
+        font-size: 1em;
+    }
+
+    div#container_submit > input{
+        display: inline;
+        max-width: 225px;
+        padding: 10px;
+    }
+
+    div#container_submit > input[type="reset"] {
+        margin-left: 0px; /* reseta o valor da margem */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Estilos para tablets */
+    body{
+        background-image: linear-gradient(to left var(--bgcolor), var(--bgcolor1));
+    }
+    section#container{
+        width: 60vw;
+    }
+    section > div#imagem{
+        float: left;
+        background: var(--bgcolor) url('../media/pattern.jpg');
+        background-size: cover;
+        width: 20vw;
+        height: 499px;
+        border-radius: 16px 0 0 16px;
+    }
+    section > div#formulario > p{
+        font-size: 0.9em;
+    }
+
+    label, #bsubmit{
+        margin-left:20px
+    }
+    div#container_submit > input{
+        display: flex;
+        max-width: 245px;
+        padding: 10px;
+    }
+    .caixa > input {
+        flex: 1;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        background-color: var(--bgcolor1);
+        font-size: 1em;
+    }
+
+    #iconperson, #iconkey {
+        transform: translateY(7px); /* Ajuste fino — pode aumentar ou diminuir esse valor */
+    }
+    
+
+    
+
+}
+
+@media (min-width: 1025px) {
+    /* Estilos para desktops e large desktops*/
+    body{
+        background-image: linear-gradient(to left var(--bgcolor), var(--bgcolor1));
+    }
+    section#container{
+        width: 80vw;
+    }
+    section > div#imagem{
+        float: right;
+        background: var(--bgcolor) url('../media/pattern.jpg');
+        background-size: cover;
+        width: 30vw;
+        height: 499px;
+        border-radius: 0px 16px 16px 0px;
+    }
+    section > div#formulario > p{
+        font-size: 1em;
+    }
+    label, #bsubmit{
+        margin-left:20px
+    }
+    div#container_submit > input{
+        display: inline;
+        max-width: 160px;
+        padding: 10px;
+    }
+    .caixa > input{
+        width: 205px;
+    }
+
+    #iconperson, #iconkey {
+        transform: translateY(7px); /* Ajuste fino — pode aumentar ou diminuir esse valor */
+    }
+}
