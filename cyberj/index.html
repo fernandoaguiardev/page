@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyber Jokenpô</title>
+  <style>
+    @charset "UTF-8";
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400;700&display=swap');
+
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    :root {
+      --bg-main: #0f0f1a;
+      --neon-pink: #ff007f;
+      --neon-cyan: #00ffff;
+      --neon-green: #39ff14;
+      --neon-yellow: #faff00;
+      --neon-purple: #c300ff;
+      --text-light: #e0e0e0;
+    }
+
+    body {
+      color: var(--text-light);
+      background-color: var(--bg-main);
+      text-align: center;
+    }
+
+    header {
+      background-color: var(--neon-purple);
+      color: black;
+    }
+
+    header h1 {
+      padding: 20px;
+      color: var(--text-light);
+      text-shadow: 2px 2px 10px #0f0f1a;
+    }
+
+    #placar {
+      top: 20px;
+      right: 20px;
+      background-color: rgba(0, 255, 255, 0.1);
+      color: var(--neon-cyan);
+      padding: 10px 20px;
+      border: 1px solid var(--neon-cyan);
+      font-weight: 500;
+      text-shadow: 3px 3px 15px #0f0f1a;
+    }
+
+    #mensagens {
+      max-width: 1000px;
+      margin: 80px auto 10px auto;
+      padding: 20px;
+      background-color: #1c1c2b;
+      border: 2px solid var(--neon-cyan);
+      border-radius: 12px;
+      min-height: 120px;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    #mensagens.jogavel {
+      cursor: pointer;
+      opacity: 1;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 5px var(--neon-cyan); }
+      50% { box-shadow: 0 0 15px var(--neon-cyan); }
+      100% { box-shadow: 0 0 5px var(--neon-cyan); }
+    }
+
+    .verde {
+      background-color: var(--neon-green) !important;
+      color: black;
+    }
+
+    .vermelho {
+      background-color: var(--neon-pink) !important;
+      color: black;
+    }
+
+    #arena {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      margin: 20px auto 30px auto;
+      max-width: 1000px;
+    }
+
+    .lado {
+      flex: 1;
+      padding: 20px;
+      background-color: #1f1f2e;
+      border: 2px solid var(--neon-purple);
+      border-radius: 12px;
+      margin: 10px;
+      min-height: 300px;
+      color: var(--neon-yellow);
+    }
+
+    #div1 {
+      background-image: url("img/Curious-bro.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    #div2 {
+      align-content: center;
+    }
+
+    #div3 {
+      background-image: url("img/Robot-face.png");
+      background-size: cover;
+      background-position: center;
+    }
+
+    button {
+      padding: 12px 24px;
+      margin: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      background: none;
+      width: 200px;
+      border: 2px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--neon-cyan);
+      color: black;
+      box-shadow: 0 0 10px var(--neon-cyan);
+    }
+
+    #botaoMusica {
+      position:fixed;
+      bottom: 80px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: rgba(0, 255, 255, 0.1);
+      border: 2px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      font-size: 1.5em;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 0 10px var(--neon-cyan);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    #botaoMusica:hover {
+      background-color: var(--neon-cyan);
+      color: black;
+      box-shadow: 0 0 20px var(--neon-cyan);
+    }
+
+    footer {
+      width: 100%;
+      padding: 20px;
+      background-color: #111;
+      color: var(--neon-purple);
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+    }
+  </style>
+
+  <script>
+    let scoreUser = 0;
+    let scorePC = 0;
+    let jogoEncerrado = false;
+
+    function jogadaPC() {
+      return Math.floor(Math.random() * 3) + 1;
+    }
+
+    function resultadoRodada(jogadaUser, jogadaPC) {
+      let resultado = "";
+
+      if (jogadaUser == jogadaPC) {
+        resultado = "Empate! Ambos jogaram a mesma coisa.";
+      } else if ((jogadaUser == 1 && jogadaPC == 3) ||
+                 (jogadaUser == 2 && jogadaPC == 1) ||
+                 (jogadaUser == 3 && jogadaPC == 2)) {
+        scoreUser++;
+        resultado = "Você ganhou essa rodada!";
+      } else {
+        scorePC++;
+        resultado = "O Robô ganhou essa rodada!";
+      }
+
+      document.getElementById("placar").innerText = `Menino [${scoreUser}] x [${scorePC}] Robô`;
+      return resultado;
+    }
+
+    function jogar(escolha) {
+      if (jogoEncerrado) return;
+
+      const maoPC = jogadaPC();
+      const jogadas = ["", "🪨 Pedra", "📄 Papel", "✂️ Tesoura"];
+
+      const mensagens = document.getElementById("mensagens");
+      mensagens.classList.remove("verde", "vermelho", "jogavel");
+      mensagens.onclick = null;
+
+      let texto = `
+        <p><strong>Você escolheu:</strong> ${jogadas[escolha]}</p>
+        <p><strong>Robô escolheu:</strong> ${jogadas[maoPC]}</p>
+      `;
+
+      const resultado = resultadoRodada(escolha, maoPC);
+      texto += `<p><strong>Resultado:</strong> ${resultado}</p>`;
+
+      if (scoreUser + scorePC === 3) {
+        let mensagemFinal = "";
+        if (scoreUser > scorePC) {
+          mensagemFinal = "Parabéns, você GANHOU!!!";
+          mensagens.classList.add("verde");
+        } else if (scoreUser < scorePC) {
+          mensagemFinal = "Robô Sinistro Ganhou! Jogue novamente...";
+          mensagens.classList.add("vermelho");
+        } else {
+          mensagemFinal = "Empate!!!";
+        }
+
+        texto += `<p><strong>${mensagemFinal}</strong></p>`;
+        texto += `<p><em>Clique aqui para jogar novamente</em></p>`;
+
+        mensagens.classList.add("jogavel");
+        mensagens.onclick = reiniciarJogo;
+
+        jogoEncerrado = true;
+      }
+
+      mensagens.innerHTML = texto;
+    }
+
+    function reiniciarJogo() {
+      scoreUser = 0;
+      scorePC = 0;
+      jogoEncerrado = false;
+
+      const mensagens = document.getElementById("mensagens");
+      mensagens.classList.remove("verde", "vermelho", "jogavel");
+      mensagens.onclick = null;
+      mensagens.innerHTML = `<p>Escolha com sabedoria, meu jovem...</p>`;
+
+      document.getElementById("placar").innerText = `Menino preparado [0] x [0] Robô sinistro`;
+      document.getElementById("botoes").style.display = "block";
+    }
+
+    // 🎵 Música de Fundo
+    let tocando = false;
+    function tocarMusica() {
+      const audio = document.getElementById("musicaFundo");
+      const botao = document.getElementById("botaoMusica");
+
+      if (!tocando) {
+        audio.play();
+        botao.innerText = "🔊";
+      } else {
+        audio.pause();
+        botao.innerText = "🎵";
+      }
+
+      tocando = !tocando;
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Cyber Jokenpô</h1>
+    <h2 id="placar">Menino preparado [0] x [0] Robô sinistro</h2>
+  </header>
+
+  <div id="mensagens">
+    <p>Escolha com sabedoria, meu jovem...</p>
+  </div>
+
+  <div id="arena">
+    <div class="lado" id="div1">
+      <p>Menino preparado</p>
+    </div>
+
+    <div class="lado" id="div2">
+      <div id="botoes">
+        <button onclick="jogar(1)">🪨 Pedra</button>
+        <button onclick="jogar(2)">📄 Papel</button>
+        <button onclick="jogar(3)">✂️ Tesoura</button>
+      </div>
+    </div>
+
+    <div class="lado" id="div3">
+      <p>Robô sinistro</p>
+    </div>
+  </div>
+
+  <!-- Botão de Música e player escondido -->
+  <button id="botaoMusica" onclick="tocarMusica()">🎵</button>
+  <audio id="musicaFundo" loop>
+    <source src="mp3/game-music.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <footer>
+    <p>by Fernando Aguiar</p>
+  </footer>
+</body>
+</html>
