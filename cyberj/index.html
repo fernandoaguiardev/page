@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cyber Jokenpô</title>
   <style>
     @charset "UTF-8";
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400;700&display=swap');
+
     @font-face {
       font-family: 'CyberPunk';
       src: url('fonts/CyberPunk.otf') format('opentype');
@@ -22,11 +24,13 @@
 
     :root {
       --bg-main: #0f0f1a;
+      --bg-main80: #0f0f1ac4;
       --neon-pink: #ff007f;
       --neon-cyan: #00ffff;
       --neon-green: #39ff14;
       --neon-yellow: #faff00;
       --neon-purple: #c300ff;
+      --neon-purple80: #c300ffbd;
       --text-light: #e0e0e0;
     }
 
@@ -37,7 +41,7 @@
     }
 
     header {
-      background-color: var(--neon-purple);
+      background-color: var(--neon-purple80);
       color: black;
     }
 
@@ -55,7 +59,7 @@
       color: var(--text-light);
       padding: 20px;
       border: 2px solid var(--neon-cyan);
-      border-radius: 12px 12px 0 0 ;
+      border-radius: 12px 12px 0 0;
       font-weight: 500;
       text-shadow: 3px 3px 15px #0f0f1a;
       margin: 70px auto 0px;
@@ -80,9 +84,17 @@
     }
 
     @keyframes pulse {
-      0% { box-shadow: 0 0 5px var(--neon-cyan); }
-      50% { box-shadow: 0 0 15px var(--neon-cyan); }
-      100% { box-shadow: 0 0 5px var(--neon-cyan); }
+      0% {
+        box-shadow: 0 0 5px var(--neon-cyan);
+      }
+
+      50% {
+        box-shadow: 0 0 15px var(--neon-cyan);
+      }
+
+      100% {
+        box-shadow: 0 0 5px var(--neon-cyan);
+      }
     }
 
     .verde {
@@ -150,7 +162,7 @@
     }
 
     #botaoMusica {
-      position:fixed;
+      position: fixed;
       bottom: 80px;
       right: 30px;
       width: 60px;
@@ -175,7 +187,7 @@
     footer {
       width: 100%;
       padding: 20px;
-      background-color: #111;
+      background-color: var(--bg-main80);
       color: var(--neon-purple);
       text-align: center;
       position: fixed;
@@ -205,8 +217,8 @@
       if (jogadaUser == jogadaPC) {
         resultado = "Empate! Ambos jogaram a mesma coisa.";
       } else if ((jogadaUser == 1 && jogadaPC == 3) ||
-                 (jogadaUser == 2 && jogadaPC == 1) ||
-                 (jogadaUser == 3 && jogadaPC == 2)) {
+        (jogadaUser == 2 && jogadaPC == 1) ||
+        (jogadaUser == 3 && jogadaPC == 2)) {
         scoreUser++;
         resultado = "Você ganhou essa rodada!";
       } else {
@@ -292,6 +304,66 @@
     }
   </script>
 </head>
+<canvas id="neve"></canvas>
+
+<script>
+  const canvas = document.getElementById('neve');
+  const ctx = canvas.getContext('2d');
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  let flocos = [];
+
+  for (let i = 0; i < 100; i++) {
+    flocos.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      raio: Math.random() * 3 + 1,
+      velocidadeY: Math.random() * 0.6 + 0.3,
+      velocidadeX: Math.random() * 0.3 - 0.15
+
+    });
+  }
+
+  function desenharNeve() {
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.beginPath();
+    for (let floco of flocos) {
+      ctx.moveTo(floco.x, floco.y);
+      ctx.arc(floco.x, floco.y, floco.raio, 0, Math.PI * 2);
+    }
+    ctx.fill();
+    atualizarFlocos();
+    requestAnimationFrame(desenharNeve);
+  }
+
+  function atualizarFlocos() {
+    for (let floco of flocos) {
+      floco.y += floco.velocidadeY;
+      floco.x += floco.velocidadeX;
+
+      if (floco.y > height) {
+        floco.y = 0;
+        floco.x = Math.random() * width;
+      }
+    }
+  }
+
+  desenharNeve();
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  // Deixa o canvas fixo no fundo
+  canvas.style.position = 'fixed';
+  canvas.style.top = 0;
+  canvas.style.left = 0;
+  canvas.style.zIndex = '-1';
+  canvas.style.pointerEvents = 'none';
+</script>
 
 <body>
   <header>
@@ -332,4 +404,5 @@
     <p><a href="https://fernandoaguiardev.github.io/page/">&copy;fernandoaguiardev</a></p>
   </footer>
 </body>
+
 </html>
