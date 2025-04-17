@@ -50,8 +50,14 @@
       transition: background 0.3s, color 0.3s;
     }
 
+    header {
+      min-height: 50px;
+    }
+
     h1 {
       font-size: 2.5rem;
+      font-family: "Julius Sans One";
+      font-weight: 200;
       margin-bottom: 1rem;
       text-align: center;
       color: var(--accent);
@@ -87,7 +93,7 @@
       color: var(--accent);
       text-decoration: none;
       font-size: 1.3rem;
-      font-weight: bold;
+      font-weight: 400;
     }
 
     a:hover {
@@ -96,6 +102,7 @@
     }
 
     h2 {
+      font-weight: 400;
       margin-top: 2rem;
       margin-bottom: 1rem;
       color: var(--accent);
@@ -157,9 +164,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 3rem;
+      gap: 5rem;
       margin-bottom: 2rem;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       text-align: center;
     }
 
@@ -174,12 +181,13 @@
 </head>
 
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌗 Tema</button>
-
+  <header>
+    <button class="theme-toggle" onclick="toggleTheme()">🌗 Tema</button>    
+  </header>
   <div class="header-container">
-    <img src="https://avatars.githubusercontent.com/u/182021101?v=4" alt="Foto de Fernando Aguiar"
-      class="profile-inline">
     <h1>Fernando Aguiar - Projetos</h1>
+    <img src="https://avatars.githubusercontent.com/u/182021101?v=4" alt="Foto de Fernando Aguiar"
+    class="profile-inline">
   </div>
   <p>Bem-vindo ao meu repositório GitHub Pages! Aqui você vai encontrar algumas das páginas e projetos desenvolvidos por
     mim. Podem ser trabalhos da faculdade, exercícios de cursos online ou momentos de criatividade pessoal.</p>
