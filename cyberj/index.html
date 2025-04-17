@@ -190,7 +190,7 @@
       background-color: var(--bg-main80);
       color: var(--neon-purple);
       text-align: center;
-      position: fixed;
+      position: relative;
       bottom: 0;
     }
 
@@ -199,6 +199,24 @@
       font-size: 1em;
       text-decoration: none;
       color: var(--neon-purple);
+    }
+
+    @media (max-width: 700px) {
+      button {
+        width: 320px;
+
+      } 
+
+      #arena {
+        display: block;
+        margin: 20px auto 30px auto;
+        max-width: 1000px;
+      }
+
+      #div1 {
+        display: none;
+      }
+
     }
   </style>
 
@@ -282,7 +300,7 @@
       mensagens.onclick = null;
       mensagens.innerHTML = `<p>Escolha com sabedoria, meu jovem...</p>`;
 
-      document.getElementById("placar").innerText = `Menino preparado [0] x [0] Robô sinistro`;
+      document.getElementById("placar").innerText = `Menino [0] x [0] Robô`;
       document.getElementById("botoes").style.display = "block";
     }
 
@@ -369,7 +387,7 @@
   <header>
     <h1>Cyber Jokenpô</h1>
   </header>
-  <h2 id="placar">Menino preparado [0] x [0] Robô sinistro</h2>
+  <h2 id="placar">Menino [0] x [0] Robô</h2>
 
   <div id="mensagens">
     <p>Escolha com sabedoria, meu jovem...</p>
