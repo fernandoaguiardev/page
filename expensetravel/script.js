@@ -23,7 +23,7 @@ const resetBtn = document.getElementById("resetBtn");
 let totalValue = 0.00;
 let totalSpent = 0.00;
 let expenses = [];
-let expenseId = 1;
+let expenseId = 1; // Começa com 1 para índices mais intuitivos
 
 // Função de Login
 loginBtn.addEventListener("click", function() {
@@ -79,33 +79,42 @@ addExpenseBtn.addEventListener("click", function() {
     const expenseValue = parseFloat(expenseValueField.value);
     const expenseDate = expenseDateField.value;
 
+    // Verifica se os campos estão preenchidos corretamente
     if (expenseName && !isNaN(expenseValue) && expenseDate) {
         if (expenseValue <= 0) {
             alert("O valor da despesa deve ser positivo.");
             return;
         }
 
-        const expense = {
-            id: expenseId++,
-            name: expenseName,
-            value: expenseValue,
-            date: expenseDate
-        };
+        // Mostra uma janela de confirmação antes de salvar a despesa
+        const confirmAddition = confirm(`Deseja adicionar a despesa "${expenseName}" no valor de R$ ${expenseValue.toFixed(2)}?`);
 
-        expenses.push(expense);
-        totalSpent += expenseValue;
-        totalValue -= expenseValue;
+        if (confirmAddition) {
+            const expense = {
+                id: expenseId++, // Adiciona um índice único à despesa
+                name: expenseName,
+                value: expenseValue,
+                date: expenseDate
+            };
 
-        totalSpentElem.textContent = totalSpent.toFixed(2);
-        totalValueElem.textContent = totalValue.toFixed(2);
+            expenses.push(expense);
+            totalSpent += expenseValue;
+            totalValue -= expenseValue;
 
-        saveData();
-        displayExpenses();
-        alert("Despesa adicionada com sucesso!");
+            totalSpentElem.textContent = totalSpent.toFixed(2);
+            totalValueElem.textContent = totalValue.toFixed(2);
+
+            saveData();
+            displayExpenses();
+            alert("Despesa adicionada com sucesso!");
+        } else {
+            alert("Despesa cancelada.");
+        }
     } else {
         alert("Por favor, preencha todos os campos corretamente.");
     }
 
+    // Limpar os campos após a operação
     expenseNameField.value = "";
     expenseValueField.value = "";
     expenseDateField.value = "";
