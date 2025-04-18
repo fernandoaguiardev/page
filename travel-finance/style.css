@@ -1,130 +1,90 @@
-/* Reset básico para garantir uma aparência consistente em todos os navegadores */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
 }
 
-/* Corpo do documento */
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #87CEEB, #FFDDC1); /* Céu azul claro e areia */
+    background: linear-gradient(135deg, #87CEEB, #FFDDC1);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Garante que o body ocupe toda a altura da tela */
-    margin: 0;
-    padding: 0;
+    height: 100vh;
 }
 
-/* Estilo do container principal do app */
+/* Container do App */
 #appScreen {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    width: 500px; /* Largura fixa de 500px */
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    background-color: #ffffffd4; /* Leve transparência para o efeito de praia */
-}
-
-/* Títulos e textos principais */
-h1, h3 {
-    font-size: 24px;
-    text-align: center;
-    color: #006994; /* Azul mais forte, inspirado no oceano */
-    margin: 10px 0;
-}
-
-h3 {
-    font-size: 18px;
-}
-
-#totalValue, #totalSpent {
-    font-weight: bold;
-    color: #FF8C00; /* Cor laranja, para remeter ao pôr-do-sol */
-}
-
-/* Estilo para os campos de input */
-input[type="text"], input[type="number"], input[type="date"], input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 2px solid #FF8C00; /* Cor laranja nos inputs */
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: #fff7e6; /* Fundo suave para os campos */
-    color: #333;
-}
-
-/* Botões principais */
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #006994; /* Azul bonito de oceano */
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #005673; /* Azul mais escuro para o hover */
-}
-
-/* Botão de Reset */
-#resetBtn {
-    background-color: #FF6347; /* Tom de vermelho/salmão para reset */
-}
-
-#resetBtn:hover {
-    background-color: #FF4500;
-}
-
-/* Lista de despesas */
-ul {
-    width: 100%;
-    margin-top: 20px;
-}
-
-ul li {
-    padding: 12px;
-    background-color: #fffbf1; /* Fundo mais claro para as despesas */
-    margin-bottom: 10px;
-    border-radius: 10px;
-    border: 2px solid #ddd;
-}
-
-/* Para garantir que o container principal esteja sempre centralizado */
-#appScreen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
     width: 500px;
     padding: 30px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Especificamente para telas menores (Mobile) */
-@media only screen and (max-width: 500px) {
-    #appScreen {
-        width: 100%;
-        padding: 20px;
-    }
+h1 {
+    color: #006994;
+    margin-bottom: 10px;
+    font-size: 3rem;
+    padding: 10px;
+}
 
-    h1 {
-        font-size: 22px;
-    }
+h3 {
+    color: #006994;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    padding: 5px;
+}
 
-    h3 {
-        font-size: 16px;
-    }
+label {
+    font-size: 1.2rem;
+}
+
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+input[type="text"], input[type="number"], input[type="date"], input[type="password"] {
+    border: 2px solid #FF8C00;
+    background-color: #fff7e6;
+}
+
+button {
+    background-color: #006994;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: #005673;
+}
+
+ul {
+    width: 100%;
+    list-style: none;
+}
+
+ul li {
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

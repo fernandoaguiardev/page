@@ -23,6 +23,7 @@ const resetBtn = document.getElementById("resetBtn");
 let totalValue = 0.00;
 let totalSpent = 0.00;
 let expenses = [];
+let expenseId = 1;
 
 // Função de Login
 loginBtn.addEventListener("click", function() {
@@ -30,8 +31,8 @@ loginBtn.addEventListener("click", function() {
     const password = passwordField.value;
 
     if (username === validUser && password === validPassword) {
-        loginScreen.style.display = "none"; // Ocultar tela de login
-        appScreen.style.display = "flex"; // Mostrar app com display flex para garantir centralização
+        loginScreen.style.display = "none";
+        appScreen.style.display = "flex";
         loadStoredData();
     } else {
         alert("Usuário ou senha incorretos.");
@@ -62,12 +63,12 @@ function loadStoredData() {
     displayExpenses();
 }
 
-// Função para exibir as despesas na tela
+// Função para exibir as despesas
 function displayExpenses() {
     expenseList.innerHTML = "";
     expenses.forEach(expense => {
         const li = document.createElement("li");
-        li.textContent = `${expense.name}: R$ ${expense.value.toFixed(2)} | Data: ${expense.date}`;
+        li.textContent = `#${expense.id} - ${expense.name}: R$ ${expense.value.toFixed(2)} | Data: ${expense.date}`;
         expenseList.appendChild(li);
     });
 }
@@ -79,7 +80,13 @@ addExpenseBtn.addEventListener("click", function() {
     const expenseDate = expenseDateField.value;
 
     if (expenseName && !isNaN(expenseValue) && expenseDate) {
+        if (expenseValue <= 0) {
+            alert("O valor da despesa deve ser positivo.");
+            return;
+        }
+
         const expense = {
+            id: expenseId++,
             name: expenseName,
             value: expenseValue,
             date: expenseDate
@@ -94,32 +101,34 @@ addExpenseBtn.addEventListener("click", function() {
 
         saveData();
         displayExpenses();
+        alert("Despesa adicionada com sucesso!");
     } else {
         alert("Por favor, preencha todos os campos corretamente.");
     }
 
-    // Limpar campos após adicionar a despesa
     expenseNameField.value = "";
     expenseValueField.value = "";
-    expenseDateField.value = ""; // Limpar o campo de data
+    expenseDateField.value = "";
 });
 
 // Função para reiniciar os valores
 resetBtn.addEventListener("click", function() {
-    const valorDisponivel = prompt("Digite o valor disponível para gastar:");
+    if (confirm("Tem certeza que deseja reiniciar os valores? Isso apagará todas as despesas.")) {
+        const valorDisponivel = prompt("Digite o valor disponível para gastar:");
 
-    // Verifica se o valor inserido é válido
-    if (!isNaN(valorDisponivel) && parseFloat(valorDisponivel) > 0) {
-        totalValue = parseFloat(valorDisponivel);
-        totalSpent = 0;
-        expenses = [];
+        if (!isNaN(valorDisponivel) && parseFloat(valorDisponivel) > 0) {
+            totalValue = parseFloat(valorDisponivel);
+            totalSpent = 0;
+            expenses = [];
+            expenseId = 1;
 
-        totalValueElem.textContent = totalValue.toFixed(2);
-        totalSpentElem.textContent = totalSpent.toFixed(2);
+            totalValueElem.textContent = totalValue.toFixed(2);
+            totalSpentElem.textContent = totalSpent.toFixed(2);
 
-        saveData();
-        displayExpenses();
-    } else {
-        alert("Valor inválido! Tente novamente.");
+            saveData();
+            displayExpenses();
+        } else {
+            alert("Valor inválido! Tente novamente.");
+        }
     }
 });
