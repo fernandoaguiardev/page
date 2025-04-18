@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelFinance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div id="loginScreen">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button id="loginBtn">Entrar</button>
+        </div>
+    
+        <div id="appScreen" style="display:none;">
+            <h1>TravelFinance</h1>
+            <h3>Total Disponível: R$ <span id="totalValue">0.00</span></h3>
+            <h3>Total Gasto: R$ <span id="totalSpent">0.00</span></h3>
+        
+            <div>
+                <label for="expenseName">Nome da Despesa:</label>
+                <input type="text" id="expenseName">
+                <label for="expenseValue">Valor:</label>
+                <input type="number" id="expenseValue">
+                <label for="expenseDate">Data:</label>
+                <input type="date" id="expenseDate">
+                <button id="addExpenseBtn">Adicionar Despesa</button>
+            </div>
+        
+            <button id="resetBtn">Reiniciar</button>
+        
+            <ul id="expenseList"></ul>
+        </div>
+           
+    
+            <ul id="expenseList"></ul>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
