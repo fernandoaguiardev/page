@@ -1,0 +1,77 @@
+/* variables */
+:root {
+  /* dark */
+  --bg-dark: #10141a;
+  --surface-dark: #161b22;
+  --header-text-dark: #e6edf3;
+
+  --text-dark: #e6edf3;
+  --gray-dark: #9aa3ad;
+
+  --accent-dark: #7aa88a;
+  --accent-hover-dark: #90b89a;
+
+  --border-dark: #2f3644;
+
+  /* light */
+  --bg-light: #f7f9fb;
+  --surface-light: #ffffff;
+  --header-text-light: #ffffff;
+
+  --text-light: #1f2328;
+  --gray-light: #57606a;
+
+  --accent-light: #0969da;
+  --accent-hover-light: #0550ae;
+
+  --border-light: #d0d7de;
+}
+
+/* dark */
+[data-theme="dark"] {
+  --header-bg: #0a0c10;
+  --header-text: var(--header-text-dark);
+
+  --bg: var(--bg-dark);
+  --surface: var(--surface-dark);
+
+  --text: var(--text-dark);
+  --gray: var(--gray-dark);
+
+  --accent: var(--accent-dark);
+  --accent-hover: var(--accent-hover-dark);
+
+  --border: var(--border-dark);
+}
+
+/* light */
+[data-theme="light"] {
+  --header-bg: #0969da;
+  --header-text: var(--header-text-light);
+
+  --bg: var(--bg-light);
+  --surface: var(--surface-light);
+
+  --text: var(--text-light);
+  --gray: var(--gray-light);
+
+  --accent: var(--accent-light);
+  --accent-hover: var(--accent-hover-light);
+
+  --border: var(--border-light);
+}
+
+/* base */
+body {
+  background: linear-gradient(
+    180deg,
+    var(--bg),
+    color-mix(in srgb, var(--bg) 88%, #000)
+  );
+  color: var(--text);
+}
+
+/* textos secundários */
+p {
+  color: var(--gray);
+}
