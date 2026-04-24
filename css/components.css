@@ -30,6 +30,7 @@
 
     background: transparent;
     border: 1px solid var(--header-text);
+    border-radius: 20%;
     color: var(--header-text);
 
     padding: 0.5rem 0.8rem;
@@ -71,6 +72,16 @@
     margin-bottom: 0.5rem;
     color: var(--accent);
     min-height: 48px;
+}
+
+/* grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+
+    max-width: 1000px;
+    margin: 2rem auto;
 }
 
 /* links */
