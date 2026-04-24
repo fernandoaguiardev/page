@@ -24,4 +24,7 @@ p {
 /* títulos */
 h1, h2 {
     text-align: center;
+    font-weight: 400;
+    letter-spacing: 1px;
+
 }

@@ -5,222 +5,285 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cyber Jokenpô</title>
+
   <style>
-    @charset "UTF-8";
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;400;700&display=swap');
 
     @font-face {
       font-family: 'CyberPunk';
       src: url('fonts/CyberPunk.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
     }
 
     * {
       margin: 0;
       box-sizing: border-box;
-      font-family: "Hack", "JetBrains Mono", monospace;
+      font-family: "JetBrains Mono", monospace;
     }
 
     :root {
       --bg-main: #0f0f1a;
-      --bg-main80: #0f0f1ac4;
-      --neon-pink: #ff007f;
       --neon-cyan: #00ffff;
-      --neon-green: #39ff14;
-      --neon-yellow: #faff00;
       --neon-purple: #c300ff;
-      --neon-purple80: #c300ffbd;
+      --neon-pink: #ff007f;
+      --neon-green: #39ff14;
       --text-light: #e0e0e0;
     }
 
     body {
-      color: var(--text-light);
       background-color: var(--bg-main);
+      color: var(--text-light);
       text-align: center;
+      transition: 0.4s;
+    }
+
+    /* 👇 EFEITO GLOBAL (vitória/derrota) */
+    body.verde {
+      background: radial-gradient(circle, #39ff14 0%, #0f0f1a 70%);
+    }
+
+    body.vermelho {
+      background: radial-gradient(circle, #ff007f 0%, #0f0f1a 70%);
     }
 
     header {
-      background-color: var(--neon-purple80);
-      color: black;
+      background: linear-gradient(90deg, transparent, var(--neon-purple), transparent);
     }
 
     header h1 {
       font-family: "CyberPunk";
-      font-size: 4.5rem;
-      padding: 30px;
-      color: var(--text-light);
-      text-shadow: 2px 2px 10px #0f0f1a;
+      font-size: 4rem;
+      padding: 25px;
+      text-shadow: 0 0 10px var(--neon-purple);
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    #botaoMusica {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: 1px solid var(--neon-cyan);
+      background: rgba(0, 255, 255, 0.05);
+      color: var(--neon-cyan);
+      font-size: 1.3em;
+      cursor: pointer;
+      transition: 0.3s;
+      backdrop-filter: blur(5px);
+    }
+
+    #botaoMusica:hover {
+      background: var(--neon-cyan);
+      color: black;
+      box-shadow: 0 0 15px var(--neon-cyan);
     }
 
     #placar {
-      top: 20px;
-      right: 20px;
-      color: var(--text-light);
-      padding: 20px;
-      border: 2px solid var(--neon-cyan);
-      border-radius: 12px 12px 0 0;
-      font-weight: 500;
-      text-shadow: 3px 3px 15px #0f0f1a;
-      margin: 70px auto 0px;
-      max-width: 1000px;
+      margin: 40px auto 0;
+      padding: 15px;
+      max-width: 800px;
+      border: 1px solid var(--neon-cyan);
+      border-radius: 10px 10px 0 0;
     }
 
     #mensagens {
-      max-width: 1000px;
-      margin: 0px auto 10px auto;
-      padding: 20px;
-      background-color: #1f1f2eee;;
-      border: 2px solid var(--neon-cyan);
-      border-radius: 0 0 12px 12px;
-      min-height: 120px;
-      transition: background-color 0.3s, box-shadow 0.3s;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      padding: 15px;
+      background-color: #1f1f2e;
+      border: 1px solid var(--neon-cyan);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      min-height: 100px;
     }
 
-    #mensagens.jogavel {
-      cursor: pointer;
-      opacity: 1;
-      animation: pulse 1s infinite;
+    .versus {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 20px;
     }
 
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 5px var(--neon-cyan);
-      }
-
-      50% {
-        box-shadow: 0 0 15px var(--neon-cyan);
-      }
-
-      100% {
-        box-shadow: 0 0 5px var(--neon-cyan);
-      }
+    .lado-jogador,
+    .lado-robo {
+      flex: 1;
     }
 
-    .verde {
-      background-color: var(--neon-green) !important;
+    .lado-jogador strong,
+    .lado-robo strong {
+      font-size: 1.5rem;
+    }
+
+    .vs {
+      color: var(--neon-cyan);
+      font-weight: bold;
+    }
+
+    /* destaque da caixa */
+    #mensagens.verde {
+      background: var(--neon-green);
       color: black;
     }
 
-    .vermelho {
-      background-color: var(--neon-pink) !important;
+    #mensagens.vermelho {
+      background: var(--neon-pink);
       color: black;
     }
 
     #arena {
       display: flex;
       justify-content: space-around;
-      align-items: flex-start;
-      margin: 20px auto 30px auto;
-      max-width: 1000px;
+      margin: 20px auto;
+      max-width: 900px;
     }
 
     .lado {
       flex: 1;
       padding: 20px;
-      background-color: #1f1f2eee;
-      border: 2px solid var(--neon-purple);
-      border-radius: 12px;
       margin: 10px;
-      min-height: 300px;
-      color: var(--neon-yellow);
+      background-color: #1f1f2e;
+      border: 1px solid var(--neon-purple);
+      border-radius: 10px;
     }
 
     #div1 {
-      background-image: url("img/Curious-bro.png");
-      background-size: cover;
-      background-position: center;
-    }
-
-    #div2 {
-      align-content: center;
+      background: url("img/Curious-bro.png") center/cover;
     }
 
     #div3 {
-      background-image: url("img/Robot-face.png");
-      background-size: cover;
-      background-position: center;
+      background: url("img/Robot-face.png") center/cover;
+    }
+
+    #div2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     button {
-      padding: 12px 24px;
+      padding: 10px 20px;
       margin: 10px;
-      font-size: 1em;
-      cursor: pointer;
-      background: none;
-      width: 200px;
-      border: 2px solid var(--neon-cyan);
+      background: transparent;
+      border: 1px solid var(--neon-cyan);
       color: var(--neon-cyan);
-      border-radius: 8px;
-      transition: all 0.3s ease;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     button:hover {
-      background-color: var(--neon-cyan);
+      background: var(--neon-cyan);
       color: black;
       box-shadow: 0 0 10px var(--neon-cyan);
     }
 
-    #botaoMusica {
-      position: fixed;
-      bottom: 80px;
-      right: 30px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background-color: rgba(0, 255, 255, 0.1);
-      border: 2px solid var(--neon-cyan);
-      color: var(--neon-cyan);
-      font-size: 1.5em;
-      cursor: pointer;
-      z-index: 1000;
-      box-shadow: 0 0 10px var(--neon-cyan);
-      transition: background-color 0.3s, box-shadow 0.3s;
-    }
-
-    #botaoMusica:hover {
-      background-color: var(--neon-cyan);
+    #btnReiniciar {
+      display: none;
+      background: var(--neon-green);
       color: black;
-      box-shadow: 0 0 20px var(--neon-cyan);
+      border: none;
     }
 
     footer {
-      width: 100%;
       padding: 20px;
-      background-color: var(--bg-main80);
-      color: var(--neon-purple);
-      text-align: center;
-      position: relative;
-      bottom: 0;
-    }
-
-    footer a {
-      font-weight: 600;
-      font-size: 1em;
-      text-decoration: none;
-      color: var(--neon-purple);
-    }
-
-    @media (max-width: 700px) {
-      button {
-        width: 320px;
-
-      }
-
-      #arena {
-        display: block;
-        margin: 20px auto 30px auto;
-        max-width: 1000px;
-      }
-
-      #div1 {
-        display: none;
-      }
-
+      background-color: #111;
     }
   </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Cyber Jokenpô</h1>
+    <button id="botaoMusica" onclick="tocarMusica()">🎵</button>
+
+    <audio id="musicaFundo" loop>
+      <source src="mp3/game-music.mp3" type="audio/mpeg">
+    </audio>
+  </header>
+
+  <canvas id="neve"></canvas>
+
+  <h2 id="placar">Menino [0] x [0] Robô</h2>
+
+  <div id="mensagens">
+    <p>Escolha com sabedoria, meu jovem...</p>
+  </div>
+
+  <div id="arena">
+    <div class="lado" id="div1"></div>
+
+    <div class="lado" id="div2">
+      <div id="botoes">
+        <button onclick="tocarClique(); jogar(1)">🪨 Pedra</button>
+        <button onclick="tocarClique(); jogar(2)">📄 Papel</button>
+        <button onclick="tocarClique(); jogar(3)">✂️ Tesoura</button>
+      </div>
+
+      <button id="btnReiniciar" onclick="tocarClique(); reiniciarJogo()">
+        🔄 Iniciar
+      </button>
+    </div>
+
+    <div class="lado" id="div3"></div>
+  </div>
+
+  <audio id="somClique" src="mp3/click.mp3"></audio>
+
+  <footer>
+    <p>&copy; fernandoaguiardev</p>
+  </footer>
 
   <script>
+
+    const canvas = document.getElementById('neve');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+
+    let flocos = Array.from({ length: 80 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2 + 1,
+      vy: Math.random() * 0.5 + 0.3
+    }));
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
+
+      flocos.forEach(f => {
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        f.y += f.vy;
+        if (f.y > canvas.height) {
+          f.y = 0;
+          f.x = Math.random() * canvas.width;
+        }
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    window.addEventListener('resize', resize);
+    
+    
+    
     let scoreUser = 0;
     let scorePC = 0;
     let jogoEncerrado = false;
@@ -233,18 +296,22 @@
       let resultado = "";
 
       if (jogadaUser == jogadaPC) {
-        resultado = "Empate! Ambos jogaram a mesma coisa.";
-      } else if ((jogadaUser == 1 && jogadaPC == 3) ||
+        resultado = "Empate!";
+      } else if (
+        (jogadaUser == 1 && jogadaPC == 3) ||
         (jogadaUser == 2 && jogadaPC == 1) ||
-        (jogadaUser == 3 && jogadaPC == 2)) {
+        (jogadaUser == 3 && jogadaPC == 2)
+      ) {
         scoreUser++;
-        resultado = "Você ganhou essa rodada!";
+        resultado = "Você ganhou!";
       } else {
         scorePC++;
-        resultado = "O Robô ganhou essa rodada!";
+        resultado = "Robô venceu!";
       }
 
-      document.getElementById("placar").innerText = `Menino [${scoreUser}] x [${scorePC}] Robô`;
+      document.getElementById("placar").innerText =
+        `Menino [${scoreUser}] x [${scorePC}] Robô`;
+
       return resultado;
     }
 
@@ -255,34 +322,43 @@
       const jogadas = ["", "🪨 Pedra", "📄 Papel", "✂️ Tesoura"];
 
       const mensagens = document.getElementById("mensagens");
-      mensagens.classList.remove("verde", "vermelho", "jogavel");
-      mensagens.onclick = null;
+      mensagens.classList.remove("verde", "vermelho");
+      document.body.classList.remove("verde", "vermelho");
 
       let texto = `
-        <p><strong>Você escolheu:</strong> ${jogadas[escolha]}</p>
-        <p><strong>Robô escolheu:</strong> ${jogadas[maoPC]}</p>
+        <div class="versus">
+          <div>
+            <p>Você</p>
+            <strong>${jogadas[escolha]}</strong>
+          </div>
+
+          <div class="vs">VS</div>
+
+          <div>
+            <p>Robô</p>
+            <strong>${jogadas[maoPC]}</strong>
+          </div>
+        </div>
       `;
 
       const resultado = resultadoRodada(escolha, maoPC);
-      texto += `<p><strong>Resultado:</strong> ${resultado}</p>`;
+      texto += `<p><strong>${resultado}</strong></p>`;
 
       if (scoreUser + scorePC === 3) {
-        let mensagemFinal = "";
+        document.getElementById("botoes").style.display = "none";
+        document.getElementById("btnReiniciar").style.display = "block";
+
         if (scoreUser > scorePC) {
-          mensagemFinal = "Parabéns, você GANHOU!!!";
+          texto += `<p>🔥 VOCÊ GANHOU!</p>`;
           mensagens.classList.add("verde");
+          document.body.classList.add("verde");
         } else if (scoreUser < scorePC) {
-          mensagemFinal = "Robô Sinistro Ganhou! Jogue novamente...";
+          texto += `<p>💀 ROBÔ VENCEU!</p>`;
           mensagens.classList.add("vermelho");
+          document.body.classList.add("vermelho");
         } else {
-          mensagemFinal = "Empate!!!";
+          texto += `<p>EMPATE!</p>`;
         }
-
-        texto += `<p><strong>${mensagemFinal}</strong></p>`;
-        texto += `<p><em>Clique aqui para jogar novamente</em></p>`;
-
-        mensagens.classList.add("jogavel");
-        mensagens.onclick = reiniciarJogo;
 
         jogoEncerrado = true;
       }
@@ -295,17 +371,27 @@
       scorePC = 0;
       jogoEncerrado = false;
 
-      const mensagens = document.getElementById("mensagens");
-      mensagens.classList.remove("verde", "vermelho", "jogavel");
-      mensagens.onclick = null;
-      mensagens.innerHTML = `<p>Escolha com sabedoria, meu jovem...</p>`;
+      document.getElementById("placar").innerText =
+        "Menino [0] x [0] Robô";
 
-      document.getElementById("placar").innerText = `Menino [0] x [0] Robô`;
+      const mensagens = document.getElementById("mensagens");
+      mensagens.classList.remove("verde", "vermelho");
+      document.body.classList.remove("verde", "vermelho");
+
+      mensagens.innerHTML = "<p>Escolha com sabedoria...</p>";
+
       document.getElementById("botoes").style.display = "block";
+      document.getElementById("btnReiniciar").style.display = "none";
     }
 
-    // 🎵 Música de Fundo
+    function tocarClique() {
+      const audio = document.getElementById("somClique");
+      audio.currentTime = 0;
+      audio.play();
+    }
+
     let tocando = false;
+
     function tocarMusica() {
       const audio = document.getElementById("musicaFundo");
       const botao = document.getElementById("botaoMusica");
@@ -321,106 +407,7 @@
       tocando = !tocando;
     }
   </script>
-</head>
-<canvas id="neve"></canvas>
 
-<script>
-  const canvas = document.getElementById('neve');
-  const ctx = canvas.getContext('2d');
-  let width = canvas.width = window.innerWidth;
-  let height = canvas.height = window.innerHeight;
-
-  let flocos = [];
-
-  for (let i = 0; i < 100; i++) {
-    flocos.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      raio: Math.random() * 3 + 1,
-      velocidadeY: Math.random() * 0.6 + 0.3,
-      velocidadeX: Math.random() * 0.3 - 0.15
-
-    });
-  }
-
-  function desenharNeve() {
-    ctx.clearRect(0, 0, width, height);
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-    ctx.beginPath();
-    for (let floco of flocos) {
-      ctx.moveTo(floco.x, floco.y);
-      ctx.arc(floco.x, floco.y, floco.raio, 0, Math.PI * 2);
-    }
-    ctx.fill();
-    atualizarFlocos();
-    requestAnimationFrame(desenharNeve);
-  }
-
-  function atualizarFlocos() {
-    for (let floco of flocos) {
-      floco.y += floco.velocidadeY;
-      floco.x += floco.velocidadeX;
-
-      if (floco.y > height) {
-        floco.y = 0;
-        floco.x = Math.random() * width;
-      }
-    }
-  }
-
-  desenharNeve();
-
-  window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  });
-
-  // Deixa o canvas fixo no fundo
-  canvas.style.position = 'fixed';
-  canvas.style.top = 0;
-  canvas.style.left = 0;
-  canvas.style.zIndex = '-1';
-  canvas.style.pointerEvents = 'none';
-</script>
-
-<body>
-  <header>
-    <h1>Cyber Jokenpô</h1>
-  </header>
-  <h2 id="placar">Menino [0] x [0] Robô</h2>
-
-  <div id="mensagens">
-    <p>Escolha com sabedoria, meu jovem...</p>
-  </div>
-
-  <div id="arena">
-    <div class="lado" id="div1">
-      <p>Menino preparado</p>
-    </div>
-
-    <div class="lado" id="div2">
-      <div id="botoes">
-        <button onclick="jogar(1)">🪨 Pedra</button>
-        <button onclick="jogar(2)">📄 Papel</button>
-        <button onclick="jogar(3)">✂️ Tesoura</button>
-      </div>
-    </div>
-
-    <div class="lado" id="div3">
-      <p>Robô sinistro</p>
-    </div>
-  </div>
-
-  <!-- Botão de Música e player escondido -->
-  <button id="botaoMusica" onclick="tocarMusica()">🎵</button>
-  <audio id="musicaFundo" loop>
-    <source src="mp3/game-music.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio.
-  </audio>
-
-  <footer>
-    <p><a href="https://fernandoaguiardev.github.io/page/">&copy;fernandoaguiardev</a></p>
-  </footer>
 </body>
 
 </html>

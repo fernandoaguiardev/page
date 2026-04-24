@@ -1,26 +1,18 @@
-// =======================
 // VARIÁVEIS GLOBAIS
-// =======================
 let imoveis = [];
 let id = 0;
 
 
 
 
-// =======================
 // FUNÇÕES
-// =======================
-// =======================
 // SALVAR NO "BACKEND"
-// =======================
 function salvarDados() {
     localStorage.setItem("imoveis", JSON.stringify(imoveis));
     localStorage.setItem("id", id);
 }
 
-// =======================
 // CARREGAR DO "BACKEND"
-// =======================
 function carregarDados() {
     let dados = localStorage.getItem("imoveis");
     let ultimoId = localStorage.getItem("id");
@@ -34,9 +26,7 @@ function carregarDados() {
     }
 }
 
-// =======================
 // CREATE
-// =======================
 function cadastrarImovel(event) {
     event.preventDefault();
 
@@ -57,9 +47,7 @@ function cadastrarImovel(event) {
     document.getElementById("formImovel").reset();
 }
 
-// =======================
 // READ
-// =======================
 function mostrarImoveis() {
     let lista = document.getElementById("lista");
     lista.innerHTML = "";
@@ -96,9 +84,7 @@ function mostrarImoveis() {
     });
 }
 
-// =======================
 // DELETE (por botão no card)
-// =======================
 function removerPorId(idRecebido) {
     let indice = imoveis.findIndex(i => i.id === idRecebido);
 
@@ -114,9 +100,7 @@ function removerPorId(idRecebido) {
     }
 }
 
-// =======================
 // DELETE (manual - opcional)
-// =======================
 function deletarImovel() {
     let idDigitado = Number(prompt("Digite o ID do imóvel:"));
 
@@ -134,14 +118,10 @@ function deletarImovel() {
     }
 }
 
-// =======================
 // EVENTO DO FORM
-// =======================
 document
     .getElementById("formImovel")
     .addEventListener("submit", cadastrarImovel);
 
-// =======================
 // CARREGAR DADOS
-// =======================
 carregarDados();

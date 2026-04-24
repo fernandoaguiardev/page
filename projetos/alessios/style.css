@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Inter:wght@300;400;500&display=swap');
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 html {
@@ -12,50 +12,56 @@ html {
 }
 
 body {
-    background-color: rgb(0, 0, 0);
-
+    background-color: #0f0f0f;
 }
 
 /*NAV SET*/
 nav {
-    background-color: rgb(49, 48, 48);
-    font-size: 1.2rem;
+    background-color: #141414;
+    font-size: 1.1rem;
 }
+
 nav ul {
-    padding: 1.3rem;
+    padding: 1.2rem;
     list-style: none;
     display: flex;
-    justify-content: center; /* ou space-around, space-between */
-    gap: 1rem; /* espaçamento entre os itens */
+    justify-content: center;
+    gap: 1.5rem;
 }
 
-nav ul a,
-nav ul a::before,
-nav ul a::after {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    font-weight: 500;
-
-}
 nav ul a {
-    padding: 1.3rem 1rem 1.3rem 1rem;
-    transition: background-color 0.1s ease;  /* Transição mais suave */
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 0.8rem 1rem;
+    position: relative;
+    transition: color 0.2s ease;
 }
 
-nav ul a:hover {
-    background-color: rgba(0, 0, 0, 0.158);
-    cursor: pointer;
+nav ul a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    width: 0;
+    height: 2px;
+    background-color: #d6b36a;
+    transition: width 0.3s ease;
+}
+
+nav ul a:hover::after {
+    width: 100%;
 }
 
 /*HEADER__IMG*/
 #header__img {
-    
     background-image: 
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.479),
-    rgb(0, 0, 0, 950)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.95)),
     url("img/baner.jpg");
-    background-size:cover;
-    background-position:center;
+
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     height: 45vh;
 }
@@ -66,179 +72,163 @@ nav ul a:hover {
     font-size: 3rem;
     font-family: "Julius Sans One", sans-serif;
     font-weight: 400;
-    font-style: normal;
-    color: rgba(255, 255, 255, 0.89);
-    text-shadow: 10px 10px 10px black;
+    color: #f5f5f5;
 
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    letter-spacing: 2px;
 }
 
 #header__img > p {
     text-align: center;
-    font-size: 2rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 100;
+    font-size: 1.5rem;
+    font-weight: 300;
     font-style: italic;
     padding-top: 0.5rem;
-    color: rgba(255, 255, 255, 0.89);
-    text-shadow: 10px 10px 10px black;
+    color: #d6b36a;
+
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
 }
 
 /*CARDÁPIO*/
 #cardapio--title {
     text-align: center;
     font-size: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin: 2rem 0 1rem;
     font-family: "Julius Sans One", sans-serif;
-    color: rgba(255, 255, 255, 0.836);
+    color: #f5f5f5;
+    letter-spacing: 1px;
 }
 
 #cardapio--grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    gap: 20px;
+    gap: 25px;
     padding: 2rem;
-    max-width: 1200px; /* Limita largura total */
-    margin: 0 auto;     /* Centraliza */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .cardapio--item {
-    background-color: rgba(255, 255, 255, 0.048);
-    border-radius: 5px;
+    background-color: #181818;
+    border-radius: 8px;
     padding: 10px;
     text-align: center;
-    width: 100%; /* Garante que o item respeita o grid */
+
+    border: 1px solid rgba(255,255,255,0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cardapio--item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .cardapio--item img {
-    width: 100%; /* Ocupa 100% da célula */
-    max-width: 300px; /* Limita tamanho, mas deixa flexível */
+    width: 100%;
+    max-width: 300px;
     height: auto;
-    border-radius: 7px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    border-radius: 6px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     transition: transform 0.3s ease;
     display: block;
-    margin: 0 auto; /* Centraliza imagem */
+    margin: 0 auto;
 }
 
 .cardapio--item img:hover {
-    transform: scale(1.05);
-    cursor: pointer;
+    transform: scale(1.03);
 }
 
 .cardapio--item p {
-    margin-top: 5px;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.705);
-
+    margin-top: 8px;
+    font-weight: 500;
+    color: #cfcfcf;
 }
 
 /*SOBRE*/
 #sobre {
     margin-top: 2rem;
     padding: 3rem;
-    background-color: rgba(202, 121, 62, 0.226);
+    background-color: rgba(122, 28, 28, 0.25);
     min-height: 25vh;
     text-align: center;
     border-radius: 1.5rem 1.5rem 0 0;
-    
 }
 
 #sobre > h2 {
     font-size: 2rem;
     font-weight: 300;
     font-family: "Julius Sans One", sans-serif;
-    color: rgba(255, 255, 255, 0.705);
+    color: #f5f5f5;
+    letter-spacing: 1px;
 }
 
 #sobre > p {
-    color: rgba(209, 201, 201, 0.705);
-    font-size: 1.2rem;
-    letter-spacing: 0.3rem;
+    color: #cfcfcf;
+    font-size: 1.1rem;
+    letter-spacing: 0.05rem;
     padding-top: 1rem;
-
 }
 
-/*FOOTER*/
 /*CONTATO*/
 #contato {
     text-align: center;
-    color: rgba(209, 201, 201, 0.705);
+    color: #cfcfcf;
     padding: 3rem 2rem;
     background-color: rgba(255, 255, 255, 0.03);
     margin: 1rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     font-family: "Julius Sans One", sans-serif;
-    border-radius:  0 0 1.5rem 1.5rem;
-
+    border-radius: 0 0 1.5rem 1.5rem;
 }
 
 #contato h2 {
     font-size: 2rem;
     font-weight: 400;
     margin-bottom: 1rem;
-    color: rgba(209, 201, 201, 0.705);
-
 }
 
 #contato p {
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    line-height: 1.5rem;
-    color: rgba(220, 220, 220, 0.75);
-    font-weight: 400;
-}
-
-#contato address {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center; /* 👈 esse aqui é o segredo */
-    gap: 1rem;
-    margin-top: 2rem;
-    font-style: normal;
-    flex-wrap: wrap; /* 👈 pra manter bonito em telas menores */
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.4rem;
 }
 
 #contato address div {
     background-color: rgba(255, 255, 255, 0.03);
     padding: 1rem;
     border-radius: 10px;
-    height:10rem;
-    min-width: 300px;
-    max-width: 50vw;
 
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.2s ease;
+}
+
+#contato address div:hover {
+    transform: translateY(-2px);
 }
 
 #contato strong {
-    color: #e0c78d;
+    color: #d6b36a;
 }
 
 #contato a {
-    color: #e0c78d;
+    color: #d6b36a;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 #contato a:hover {
-    color: #fff;
-    text-decoration: underline;
+    color: #ffffff;
 }
-
 
 /*SINCE*/
 #since {
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-family: "Julius Sans One", sans-serif;
     font-weight: 200;
     font-style: italic;
-    background-color: rgb(49, 48, 48);
-    color: rgba(209, 201, 201, 0.705);
-    padding: 2rem;
-
+    background-color: #141414;
+    color: #cfcfcf;
+    padding: 1.5rem;
 }
-
-
-
