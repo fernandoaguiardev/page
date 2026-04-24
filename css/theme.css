@@ -1,3 +1,4 @@
+
 /* variables */
 :root {
   /* dark */
@@ -59,6 +60,28 @@
   --accent-hover: var(--accent-hover-light);
 
   --border: var(--border-light);
+}
+
+/* theme button */
+.theme-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+
+    background: transparent;
+    border: 1px solid var(--header-text);
+    border-radius: 20%;
+    color: var(--header-text);
+
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--header-text);
+    color: var(--header-bg);
 }
 
 /* base */
