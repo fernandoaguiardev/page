@@ -1,11 +1,7 @@
 /* theme control */
-
 function toggleTheme() {
-  const html = document.documentElement;
-  const current = html.getAttribute("data-theme");
+  const html = document.documentElement
+  const isLight = html.getAttribute("data-theme") === "light"
 
-  html.setAttribute(
-    "data-theme",
-    current === "dark" ? "light" : "dark"
-  );
+  html.setAttribute("data-theme", isLight ? "dark" : "light")
 }
