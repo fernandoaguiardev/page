@@ -108,7 +108,22 @@ header h1 {
     margin-right: 0.5rem;
     font-family: var(--font-main);
     font-weight: 600;
-    color: var(--text);
+    color: var(--text2);
+}
+
+#cursor {
+  display: inline-block;
+}
+
+.logo:hover #cursor {
+  display: inline-block;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 
 nav {
