@@ -1,150 +1,175 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fernando Aguiar - Projetos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fernando Aguiar | Portfólio</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/theme.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/components.css">
+    <!-- external -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <!-- local -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link id="light-theme" rel="stylesheet" href="./modules/themes/light/light.css">
+
 </head>
 
 <body>
 
-  <!-- loader -->
-  <div id="loader">
-    <span>› loading: page.cfg...</span>
-  </div>
+    <header>
+        <a href="#">
 
-  <!-- header (SÓ NAV) -->
-  <header class="header-container">
+            <h1>
+                <span class="logo">&lt;/&gt;</span>
+                <span class="logo">Fernando Aguiar</span>
+            </h1>
 
-    <nav class="nav">
-      <a href="#">Home</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#projects">Projetos</a>
-      <a href="#games">Games</a>
-      <a href="#tech">Tecnologias</a>
-      <a href="#contact">Contato</a>
-    </nav>
-
-    <!-- botão de tema -->
-    <button class="theme-toggle" aria-label="Alternar tema claro e escuro">🌗 Tema</button>
-
-  </header>
-
-  <main>
-    <!-- identidade -->
-    <section class="hero">
-
-      <div class="logo-container">
-        <div class="logo">Fernando Aguiar</div>
-        <div class="avatar-wrapper">
-          <img src="https://avatars.githubusercontent.com/u/182021101?v=4" class="avatar" alt="Foto de perfil Fernando Aguiar">
-        </div>
-      </div>
-      <div class="about-header">
-        <p>Bem-vindo ao meu repositório GitHub Pages!</p>
-      </div>
-
-    </section>
-
-    <!-- sobre -->
-    <section id="sobre">
-      <h2>Sobre</h2>
-
-
-      <p>
-        Sou estudante de <em>Análise e Desenvolvimento de Sistemas</em> pela
-        <a id="gf" href="https://faculdade.grancursosonline.com.br/" target="_blank" rel="noopener noreferrer">
-          Gran Faculdade
-        </a>.
-      </p>
-
-      <p>
-        Aqui você vai encontrar projetos, estudos e experimentos.
-      </p>
-
-    </section>
-
-    <!-- projetos -->
-    <section id="projects">
-      <h2>Projetos</h2>
-
-      <div class="projects-grid">
-
-        <a href="https://node-server--fernandoagdev.replit.app/" class="project-card" target="_blank"
-          rel="noopener noreferrer">
-          <h3>PI Fullstack</h3>
-          <p>Projeto integrador para meu curso de graduação em Análise e Desenvolvimento de Sistemas (Gran Faculdade).
-          </p>
         </a>
 
-        <a href="projetos/calculadoraJs/" class="project-card" target="_blank" rel="noopener noreferrer">
-          <h3>Calculadora em JS</h3>
-          <p>Calculadora desenvolvida utilizando lógica de programação em JavaScript.
-          </p>
-        </a>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#skills">Skills</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#contato">Contato</a>
+            <button id="toggle-theme"><span class="material-symbols-outlined">emoji_objects</span></button>
+        </nav>
 
-        <a href="projetos/cadastro/index.html" class="project-card" target="_blank" rel="noopener noreferrer">
-          <h3>Módulo de cadastro</h3>
-          <p>Permite cadastrar imóveis com dados relevantes e armazená-los em objetos JavaScript.
-          </p>
-        </a>
-        
-        <a href="projetos/alessios/index.html" class="project-card" target="_blank" rel="noopener noreferrer">
-          <h3>Alessios</h3>
-          <p>Site minimalista responsivo baseado em exercício da OneBitCode.</p>
-        </a>
 
-      </div>
-    </section>
-    <section id="games">
+    </header>
 
-      <h2>Games</h2>
+    <main>
 
-      <div class="projects-grid">
+        <section id="hero">
+            <h2>Desenvolvedor Full Stack focado na criação de interfaces modernas, performance e experiência do usuário</h2>
+            <p>Crio aplicações reais focadas no usuário: UX/UI design, rápidas e escaláveis</p>
+            <p>JavaScript • React • NodeJs • APIs</p>
 
-        <a href="projetos/cyberj/index.html" class="project-card" target="_blank" rel="noopener noreferrer">
-          <h3>Cyber Jokenpô</h3>
-          <p>Meu primeiro game online com estilo cyberpunk e design criativo. Melhor experiência no computador.</p>
-        </a>
+        </section>
 
-      </div>
+        <section id="projetos">
+            <h2>Projetos</h2>
 
-    </section>
+            <div class="cards">
 
-    <!-- tecnologias -->
-    <section id="tech">
-      <h2>🛠️ Tecnologias</h2>
-      <p>HTML5 • CSS3 • JavaScript • GitHub Pages • NodeJS</p>
-    </section>
-  </main>
+                <div class="card">
+                    <a href="https://grupogoncalves.vercel.app/" target="_blank">
+                        <h3>Grupo Gonçalves</h3>
+                        <p>Aplicação web sob demanda com foco em UX, performance e experiência fluida em múltiplos dispositivos.</p>
+                    </a>
+                </div>
 
-  <footer>
+                <div class="card">
+                    <h3>Calculadora Premium</h3>
+                    <p>Lógica JavaScript + interface refinada.</p>
+                </div>
 
-    <!-- contato -->
-    <section id="contact">
-      <h2>Contato</h2>
-      <p>Em construção...</p>
-    </section>
+                <div class="card">
+                    <h3>App com API</h3>
+                    <p>Consumo de dados reais.</p>
+                </div>
 
-    <!-- status -->
-    <div class="em-desenvolvimento">
-      <p>🔧 Em evolução constante...</p>
-    </div>
+                <div class="card">
+                    <h3>CRUD Completo</h3>
+                    <p>Cadastro, edição e persistência.</p>
+                </div>
 
-  </footer>
+                <div class="card">
+                    <h3>Projeto React</h3>
+                    <p>Componentes e hooks modernos.</p>
+                </div>
 
-  <!-- scripts -->
-  <script src="js/theme.js"></script>
-  <script src="js/loader.js"></script>
-  <script src="js/main.js"></script>
+                <div class="card">
+                    <h3>Projeto Diferencial</h3>
+                    <p>Algo único com destaque pessoal.</p>
+                </div>
 
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+
+            <ul class="skills-list">
+                <li>JavaScript (ES6+)</li>
+                <li>React</li>
+                <li>APIs REST</li>
+                <li>Git & GitHub</li>
+                <li>Responsive Design</li>
+                <li>CSS Architecture (BEM / variables)</li>
+            </ul>
+        </section>
+
+        <section id="sobre">
+
+            <div class="sobre-content">
+
+                <div class="sobre-image">
+
+                    <div class="avatar-wrapper">
+                        <img src="https://avatars.githubusercontent.com/u/182021101?v=4" alt="Foto de Fernando Aguiar">
+                    </div>
+
+                </div>
+
+                <div class="sobre-text">
+                    <h2>Sobre Mim</h2>
+
+                    <p>
+                        Sou Fernando Aguiar, tenho um interesse genuíno por tecnologia desde a infância, quando tive
+                        meu primeiro contato com computadores.
+                        Ao longo dos anos, me aprofundei em cursos de informática, hardware, redes e web design.
+                    </p>
+
+                    <p>
+                        Apesar disso, construi carreira em outra área profissional e atuo há mais de 10 anos como servidor
+                        público.
+                    </p>
+
+                    <p>
+                        Hoje, na casa dos 30 anos, decidi retornar ao que realmente me motiva.
+                        Estou cursando o último semestre de Análise e Desenvolvimento de Sistemas pela <a href="https://www.grancursosonline.com.br/" target="_blank" rel="Gran Faculdade">Gran Faculdade</a> e sigo evoluindo com foco em
+                        desenvolvimento web, segurança da informação e inteligência artificial.
+                    </p>
+
+                    <p>
+                        No meu tempo livre, gosto de explorar criação de mods para jogos e tenho interesse em
+                        desenvolvimento de games.
+                        Codar e construir soluções é algo que me mantém motivado.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+    <footer>
+
+        <section id="contato">
+
+            <h2>Contato</h2>
+
+            <p>Email: sigmasolutions.dev@gmail.com</p>
+            <p>GitHub: <a href="#">github.com/fernandoaguiardev</a></p>
+            <p>Portfólio: <a href="#">fernandoaguiardev.github.io/page</a></p>
+
+        </section>
+
+        <p class="copy">© 2024 Fernando Aguiar. Todos os direitos reservados.</p>
+
+    </footer>
+
+    <script src="./modules/themes/light/light.js"></script>
 </body>
 
 </html>

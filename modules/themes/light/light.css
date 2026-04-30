@@ -1,0 +1,65 @@
+:root {
+
+    /* variables */
+
+    /* text */
+    --palette-grey: #0f172a;
+    /* texto principal */
+    --palette-grey1: #334155;
+    /* texto secundário */
+    --palette-grey2: #64748b;
+    /* texto suave */
+
+    /* surfaces */
+    --palette-grey3: #ffffff;
+    /* cards */
+    --palette-grey4: #f8fafc;
+    /* background */
+    --palette-grey5: #eef2f7;
+    /* variação de fundo */
+
+    /* accent */
+    --palette-blue: #38bdf8;
+    --palette-blue2: #2563eb;
+
+    --lamp-color: #dfc283;
+
+    /* overlays / borders */
+    --overlay: rgba(15, 23, 42, 0.04);
+    --border: rgba(15, 23, 42, 0.10);
+
+    /* layout */
+    --bg: var(--palette-grey4);
+    --surface: var(--palette-grey3);
+    --surface-2: var(--palette-grey5);
+
+    --text: var(--palette-grey);
+    --text2: var(--palette-grey1);
+
+    --accent: var(--palette-blue);
+    --accent2: var(--palette-blue2);
+}
+
+header {
+    background: linear-gradient(to right,
+            rgba(37, 99, 235, 0.10),
+            rgba(37, 99, 235, 0.04));
+    backdrop-filter: blur(var(--blur));
+    border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+#toggle-theme:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+    transform: scale(1.05);
+}
+
+.material-symbols-outlined {
+    color: var(--lamp-color);
+    /* amarelo mais elegante (tipo amber) */
+    transition: all 0.25s ease;
+}
+
+.avatar-wrapper:hover {
+    background: var(--accent2);
+
+}
