@@ -297,13 +297,13 @@ section h2 {
 /* SOBRE */
 .sobre-content {
     display: grid;
-    grid-template-columns: 64vw 1fr;
+    grid-template-columns: 75% 1fr;
     align-items: center;
     gap: 3rem;
 }
 
 .sobre-image {
-    padding-top: 20px;
+    padding-top: 25px;
     display: flex;
     justify-content: center;
 }
