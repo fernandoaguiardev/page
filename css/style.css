@@ -244,10 +244,18 @@ section h2 {
 }
 
 .card {
+    text-decoration: none;
+
+    color: inherit;
+
     background: var(--surface);
+
     padding: 1.5rem;
+
     border-radius: var(--radius);
+
     transition: var(--transition);
+
     border: 1px solid var(--border);
 }
 
