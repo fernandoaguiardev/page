@@ -16,7 +16,6 @@
 
     <!-- local -->
     <link rel="stylesheet" href="./css/style.css">
-    <link id="light-theme" rel="stylesheet" href="./modules/themes/light/light.css">
 
 </head>
 
@@ -28,7 +27,6 @@
             <h1 class="logo">
                 <span>❯</span>
                 <span id="typing">Fernando Aguiar</span>
-                <span id="cursor">_</span>
             </h1>
 
         </a>
@@ -39,7 +37,6 @@
             <a href="#skills">Skills</a>
             <a href="#projetos">Projetos</a>
             <a href="#contato">Contato</a>
-            <button id="toggle-theme"><span class="material-symbols-outlined">emoji_objects</span></button>
         </nav>
 
 
@@ -47,15 +44,16 @@
 
     <main>
 
-        <section id="hero">
-            <h2>Desenvolvedor Full Stack focado na criação de interfaces modernas, performance e experiência do usuário
+        <section id="hero" class="align-left">
+            <h2>Desenvolvedor Full Stack Crio interfaces modernas e sistemas web de alta performance focado em
+                interfaces modernas e experiência do usuário
             </h2>
-            <p>Crio aplicações reais focadas no usuário: UX/UI design, rápidas e escaláveis</p>
-            <p>JavaScript • React • NodeJs • APIs</p>
+            <p>Aplicações reais focadas no usuário: UX/UI design. Rápidas e escaláveis</p>
+            <p>CSS3 • JavaScript • React • NodeJs • APIs</p>
 
         </section>
 
-        <section id="projetos">
+        <section id="projetos" class="align-right">
             <h2>Projetos</h2>
 
             <div class="cards">
@@ -70,19 +68,19 @@
                     </p>
                 </a>
 
-                <a class="card" href="./projetos/calculadoraJs/index.html" target="_blank" rel="noopener noreferrer">
-                    <h3>Calculadora em JavaScript</h3>
-
-                    <p>
-                        Lógica JavaScript + interface premium.
-                    </p>
-                </a>
-
                 <a class="card" href="./projetos/jogodavelha/" target="_blank" rel="noopener noreferrer">
                     <h3>Jogo da Velha</h3>
 
                     <p>
                         Lógica JavaScript + interface UI dark gamer.
+                    </p>
+                </a>
+
+                <a class="card" href="./projetos/calculadoraJs/index.html" target="_blank" rel="noopener noreferrer">
+                    <h3>Calculadora em JavaScript</h3>
+
+                    <p>
+                        Lógica JavaScript + interface premium.
                     </p>
                 </a>
 
@@ -113,7 +111,7 @@
             </div>
         </section>
 
-        <section id="skills">
+        <section id="skills" class="align-left">
             <h2>Skills</h2>
 
             <ul class="skills-list">
@@ -126,7 +124,7 @@
             </ul>
         </section>
 
-        <section id="sobre">
+        <section id="sobre" class="align-right">
 
             <div class="sobre-content">
                 <div class="sobre-text">
@@ -180,17 +178,31 @@
 
             <h2>Contato</h2>
 
-            <p>Email: sigmasolutions.dev@gmail.com</p>
-            <p>GitHub: <a href="#">github.com/fernandoaguiardev</a></p>
-            <p>Portfólio: <a href="#">fernandoaguiardev.github.io/page</a></p>
+            <div class="contact-list">
+
+                <a href="https://github.com/fernandoaguiardev" target="_blank" class="contact-item">
+                    <img class="icon" src="./assets/icons/github.png" alt="github-icon">
+                    <span>GitHub: fernandoaguiardev</span>
+                </a>
+
+                <a href="mailto:sigmasolutions.dev@gmail.com?subject=Contato%20via%20Portfólio&body=Olá%20Fernando,%20vim%20pelo%20seu%20portfólio..."
+                    class="contact-item">
+                    <img class="icon" src="./assets/icons/gmail.png" alt="gmail-icon">
+                    <span>Email: sigmasolutions.dev@gmail.com</span>
+                </a>
+
+                <a href="https://wa.me/5518997968351?text=Olá%20Fernando,%20vim%20pelo%20seu%20portfólio"
+                    target="_blank" class="contact-item whatsapp">
+                    <img class="icon" src="./assets/icons/whatsapp.png" alt="whatsapp-icon">
+                    <span>Conversar no WhatsApp</span>
+                </a>
+
+            </div>
 
         </section>
 
-        <p class="copy">© 2024 Fernando Aguiar. Todos os direitos reservados.</p>
-
     </footer>
 
-    <script src="./modules/themes/light/light.js" defer></script>
 </body>
 
 </html>
