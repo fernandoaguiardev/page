@@ -4,204 +4,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fernando Aguiar | Portfólio</title>
+    <title>Fernando Aguiar | Workspace</title>
 
-    <!-- external -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
-    <!-- local -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/style.css">
-
 </head>
 
 <body>
 
-    <header>
-        <a href="#">
+    <div class="app">
 
-            <h1 class="logo">
-                <span>❯</span>
-                <span id="typing">Fernando Aguiar</span>
-            </h1>
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
 
-        </a>
+            <div>
 
-        <nav>
-            <a href="#">Home</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#skills">Skills</a>
-            <a href="#projetos">Projetos</a>
-            <a href="#contato">Contato</a>
-        </nav>
-
-
-    </header>
-
-    <main>
-
-        <section id="hero" class="align-left">
-            <h2>Desenvolvedor Full Stack Crio interfaces modernas e sistemas web de alta performance focado em
-                interfaces modernas e experiência do usuário
-            </h2>
-            <p>Aplicações reais focadas no usuário: UX/UI design. Rápidas e escaláveis</p>
-            <p>CSS3 • JavaScript • React • NodeJs • APIs</p>
-
-        </section>
-
-        <section id="projetos" class="align-right">
-            <h2>Projetos</h2>
-
-            <div class="cards">
-
-                <a class="card" href="https://grupogoncalves.vercel.app/" target="_blank">
-                    <h3>Grupo Gonçalves</h3>
-
-                    <p>
-                        Aplicação web sob demanda com foco em UX,
-                        performance e experiência fluida em múltiplos
-                        dispositivos.
-                    </p>
-                </a>
-
-                <a class="card" href="./projetos/gamedavelha/index.html" target="_blank" rel="noopener noreferrer">
-                    <h3>Jogo da Velha</h3>
-
-                    <p>
-                        Lógica JavaScript + interface UI dark gamer.
-                    </p>
-                </a>
-
-                <a class="card" href="./projetos/calculadoraJs/index.html" target="_blank" rel="noopener noreferrer">
-                    <h3>Calculadora em JavaScript</h3>
-
-                    <p>
-                        Lógica JavaScript + interface premium.
-                    </p>
-                </a>
-
-                <a class="card" href="#">
-                    <h3>CRUD Completo</h3>
-
-                    <p>
-                        Cadastro, edição e persistência.
-                    </p>
-                </a>
-
-                <a class="card" href="#">
-                    <h3>Projeto React</h3>
-
-                    <p>
-                        Componentes e hooks modernos.
-                    </p>
-                </a>
-
-                <a class="card" href="#">
-                    <h3>Projeto Diferencial</h3>
-
-                    <p>
-                        Algo único com destaque pessoal.
-                    </p>
-                </a>
-
-            </div>
-        </section>
-
-        <section id="skills" class="align-left">
-            <h2>Skills</h2>
-
-            <ul class="skills-list">
-                <li>JavaScript (ES6+)</li>
-                <li>React</li>
-                <li>APIs REST</li>
-                <li>Git & GitHub</li>
-                <li>Responsive Design</li>
-                <li>CSS Architecture (BEM / variables)</li>
-            </ul>
-        </section>
-
-        <section id="sobre" class="align-right">
-
-            <div class="sobre-content">
-                <div class="sobre-text">
-                    <h2>Sobre Mim</h2>
-
-                    <p>
-                        Sou Fernando Aguiar, tenho um interesse genuíno por tecnologia desde a infância, quando tive
-                        meu primeiro contato com computadores.
-                        Ao longo dos anos, me aprofundei em cursos de informática, hardware, redes e web design.
-                    </p>
-
-                    <p>
-                        Apesar disso, construi carreira em outra área profissional e atuo há mais de 10 anos como
-                        servidor
-                        público.
-                    </p>
-
-                    <p>
-                        Hoje, na casa dos 30 anos, decidi retornar ao que realmente me motiva.
-                        Estou cursando o último semestre de Análise e Desenvolvimento de Sistemas pela <a
-                            href="https://www.grancursosonline.com.br/" target="_blank" rel="Gran Faculdade">Gran
-                            Faculdade</a> e sigo evoluindo com foco em
-                        desenvolvimento web, segurança da informação e inteligência artificial.
-                    </p>
-
-                    <p>
-                        No meu tempo livre, gosto de explorar criação de mods para jogos e tenho interesse em
-                        desenvolvimento de games.
-                        Codar e construir soluções é algo que me mantém motivado.
-                    </p>
+                <!-- BRAND -->
+                <div class="brand">
+                    <div>
+                        <h1>Fernando Aguiar</h1>
+                        <span>Operational Developer</span>
+                    </div>
                 </div>
-                <div class="sobre-image">
 
-                    <div class="avatar-wrapper">
-                        <img src="https://avatars.githubusercontent.com/u/182021101?v=4" alt="Foto de Fernando Aguiar">
+                <!-- NAV -->
+                <nav class="nav">
+
+                    <button class="nav-item active" data-page="home">
+                        <span>#</span>
+                        Home
+                    </button>
+
+                    <button class="nav-item" data-page="sobre">
+                        <span>#</span>
+                        Sobre
+                    </button>
+
+                    <!-- PROJECTS -->
+                    <div class="nav-group">
+
+                        <button class="nav-item expandable" id="projects-toggle">
+                            <span>+</span>
+                            Projetos
+                        </button>
+
+                        <div class="subnav" id="projects-subnav">
+
+                            <button class="subnav-item" data-project="grupo-goncalves">
+                                Grupo Gonçalves
+                            </button>
+
+                            <button class="subnav-item" data-project="jogo-da-velha">
+                                Jogo da Velha
+                            </button>
+
+                            <button class="subnav-item" data-project="calculadora-js">
+                                Calculadora JS
+                            </button>
+
+                        </div>
+
                     </div>
 
+                    <button class="nav-item" data-page="skills">
+                        <span>#</span>
+                        Skills
+                    </button>
+
+                    <button class="nav-item" data-page="contato">
+                        <span>#</span>
+                        Contato
+                    </button>
+
+                </nav>
+
+            </div>
+
+        </aside>
+
+        <!-- CONTENT -->
+        <main class="content">
+
+            <!-- SCREEN -->
+            <section class="screen">
+
+                <!-- HOME -->
+                <section class="view active-view" id="home">
+
+                    <div class="hero">
+
+                        <span class="hero-label">
+                            AVAILABLE FOR PROJECTS
+                        </span>
+
+                        <h2>
+                            Desenvolvedor Full Stack <br>
+                            Interfaces modernas e sistemas performáticos
+                        </h2>
+
+                        <p>
+                            Aplicações reais focadas em experiência
+                            do usuário, performance e design premium.
+                        </p>
+
+                        <div class="tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JAVASCRIPT</span>
+                            <span>REACT</span>
+                            <span>NODEJS</span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- SOBRE -->
+                <section class="view" id="sobre">
+
+                    <div class="page-box">
+
+                        <span class="hero-label">ABOUT</span>
+
+                        <h2>Sobre Mim</h2>
+
+                        <p>
+                            Servidor público com mais de 10 anos de experiência
+                            operacional e estudante de Análise e Desenvolvimento
+                            de Sistemas focado em tecnologia, UI/UX e desenvolvimento moderno.
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- SKILLS -->
+                <section class="view" id="skills">
+
+                    <div class="page-box">
+
+                        <span class="hero-label">STACK</span>
+
+                        <h2>Skills</h2>
+
+                        <div class="tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JAVASCRIPT</span>
+                            <span>REACT</span>
+                            <span>NODEJS</span>
+                            <span>RESPONSIVE</span>
+                            <span>UI/UX</span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- CONTATO -->
+                <section class="view" id="contato">
+
+                    <div class="page-box">
+
+                        <span class="hero-label">CONTACT</span>
+
+                        <h2>Contato</h2>
+
+                        <p>
+                            github.com/fernandoaguiardev
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- PROJECT VIEW -->
+                <section class="view project-view" id="project-screen">
+                    <iframe id="project-frame" src=""></iframe>
+                </section>
+
+            </section>
+
+            <!-- BOTTOMBAR -->
+            <footer class="bottombar">
+
+                <div class="sidebar-footer">
+                    <div class="status">
+                        <div class="status-dot"></div>
+                        AVAILABLE
+                    </div>
                 </div>
 
-            </div>
+                <p id="workspace-path">
+                    workspace://home
+                </p>
 
-        </section>
+            </footer>
 
+        </main>
 
+    </div>
 
-    </main>
-
-    <footer>
-
-        <section id="contato">
-
-            <h2>Contato</h2>
-
-            <div class="contact-list">
-
-                <a href="https://github.com/fernandoaguiardev" target="_blank" class="contact-item">
-                    <img class="icon" src="./assets/icons/github.png" alt="github-icon">
-                    <span>GitHub: fernandoaguiardev</span>
-                </a>
-
-                <a href="mailto:sigmasolutions.dev@gmail.com?subject=Contato%20via%20Portfólio&body=Olá%20Fernando,%20vim%20pelo%20seu%20portfólio..."
-                    class="contact-item">
-                    <img class="icon" src="./assets/icons/gmail.png" alt="gmail-icon">
-                    <span>Email: sigmasolutions.dev@gmail.com</span>
-                </a>
-
-                <a href="https://wa.me/5518997968351?text=Olá%20Fernando,%20vim%20pelo%20seu%20portfólio"
-                    target="_blank" class="contact-item whatsapp">
-                    <img class="icon" src="./assets/icons/whatsapp.png" alt="whatsapp-icon">
-                    <span>Conversar no WhatsApp</span>
-                </a>
-
-            </div>
-
-        </section>
-
-    </footer>
+    <script src="./js/script.js"></script>
 
 </body>
 
