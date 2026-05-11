@@ -6,12 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fernando Aguiar | Workspace</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="./css/style.css">
+
 </head>
 
 <body>
@@ -21,67 +17,69 @@
         <!-- SIDEBAR -->
         <aside class="sidebar">
 
-            <div>
+            <div class="sidebar-top">
 
-                <!-- BRAND -->
                 <div class="brand">
-                    <div>
+                    <div class="brand-avatar">FA</div>
+                    <div class="brand-info">
                         <h1>Fernando Aguiar</h1>
                         <span>Operational Developer</span>
                     </div>
                 </div>
 
-                <!-- NAV -->
                 <nav class="nav">
 
                     <button class="nav-item active" data-page="home">
-                        <span>#</span>
-                        Home
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        <span class="nav-label">Home</span>
                     </button>
 
                     <button class="nav-item" data-page="sobre">
-                        <span>#</span>
-                        Sobre
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                        <span class="nav-label">Sobre</span>
                     </button>
 
-                    <!-- PROJECTS -->
                     <div class="nav-group">
 
                         <button class="nav-item expandable" id="projects-toggle">
-                            <span>+</span>
-                            Projetos
+                            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                            <span class="nav-label">Projetos</span>
+                            <svg class="chevron" id="projects-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                         </button>
 
                         <div class="subnav" id="projects-subnav">
-
                             <button class="subnav-item" data-project="grupo-goncalves">
-                                Grupo Gonçalves
+                                <span class="subnav-dot"></span>Grupo Gonçalves
                             </button>
-
                             <button class="subnav-item" data-project="jogo-da-velha">
-                                Jogo da Velha
+                                <span class="subnav-dot"></span>Jogo da Velha
                             </button>
-
                             <button class="subnav-item" data-project="calculadora-js">
-                                Calculadora JS
+                                <span class="subnav-dot"></span>Calculadora JS
                             </button>
-
                         </div>
 
                     </div>
 
                     <button class="nav-item" data-page="skills">
-                        <span>#</span>
-                        Skills
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        <span class="nav-label">Skills</span>
                     </button>
 
                     <button class="nav-item" data-page="contato">
-                        <span>#</span>
-                        Contato
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span class="nav-label">Contato</span>
                     </button>
 
                 </nav>
 
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="status">
+                    <div class="status-dot"></div>
+                    <span class="nav-label">AVAILABLE</span>
+                </div>
             </div>
 
         </aside>
@@ -89,26 +87,22 @@
         <!-- CONTENT -->
         <main class="content">
 
-            <!-- SCREEN -->
             <section class="screen">
 
                 <!-- HOME -->
                 <section class="view active-view" id="home">
-
                     <div class="hero">
 
-                        <span class="hero-label">
-                            AVAILABLE FOR PROJECTS
-                        </span>
+                        <span class="hero-label">// AVAILABLE FOR PROJECTS</span>
 
                         <h2>
-                            Desenvolvedor Full Stack <br>
-                            Interfaces modernas e sistemas performáticos
+                            Desenvolvedor<br>
+                            <em>Full Stack</em>
                         </h2>
 
                         <p>
-                            Aplicações reais focadas em experiência
-                            do usuário, performance e design premium.
+                            Interfaces modernas e sistemas performáticos.<br>
+                            Aplicações reais focadas em UX, performance e design premium.
                         </p>
 
                         <div class="tags">
@@ -116,93 +110,168 @@
                             <span>CSS</span>
                             <span>JAVASCRIPT</span>
                             <span>REACT</span>
-                            <span>NODEJS</span>
+                            <span>NODE.JS</span>
+                        </div>
+
+                        <div class="hero-cta">
+                            <button class="btn-primary" onclick="document.querySelector('[data-page=contato]').click()">
+                                Entrar em contato
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </button>
+                            <button class="btn-ghost" onclick="document.querySelector('[data-page=sobre]').click()">
+                                Saiba mais
+                            </button>
                         </div>
 
                     </div>
-
                 </section>
 
                 <!-- SOBRE -->
                 <section class="view" id="sobre">
-
                     <div class="page-box">
 
-                        <span class="hero-label">ABOUT</span>
-
+                        <span class="hero-label">// ABOUT</span>
                         <h2>Sobre Mim</h2>
 
                         <p>
                             Servidor público com mais de 10 anos de experiência
                             operacional e estudante de Análise e Desenvolvimento
-                            de Sistemas focado em tecnologia, UI/UX e desenvolvimento moderno.
+                            de Sistemas, focado em tecnologia, UI/UX e desenvolvimento moderno.
                         </p>
 
-                    </div>
+                        <div class="about-cards">
+                            <div class="about-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                                <strong>10+ anos</strong>
+                                <span>Experiência operacional</span>
+                            </div>
+                            <div class="about-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                                <strong>ADS</strong>
+                                <span>Análise e Dev. de Sistemas</span>
+                            </div>
+                            <div class="about-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z"/></svg>
+                                <strong>Full Stack</strong>
+                                <span>Front & Backend</span>
+                            </div>
+                        </div>
 
+                    </div>
                 </section>
 
                 <!-- SKILLS -->
                 <section class="view" id="skills">
-
                     <div class="page-box">
 
-                        <span class="hero-label">STACK</span>
-
+                        <span class="hero-label">// STACK</span>
                         <h2>Skills</h2>
 
-                        <div class="tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JAVASCRIPT</span>
-                            <span>REACT</span>
-                            <span>NODEJS</span>
+                        <div class="skills-grid">
+                            <div class="skill-row">
+                                <span class="skill-name">HTML</span>
+                                <div class="skill-bar-wrap"><div class="skill-bar" style="--w:95%"></div></div>
+                                <span class="skill-pct">95%</span>
+                            </div>
+                            <div class="skill-row">
+                                <span class="skill-name">CSS</span>
+                                <div class="skill-bar-wrap"><div class="skill-bar" style="--w:90%"></div></div>
+                                <span class="skill-pct">90%</span>
+                            </div>
+                            <div class="skill-row">
+                                <span class="skill-name">JavaScript</span>
+                                <div class="skill-bar-wrap"><div class="skill-bar" style="--w:80%"></div></div>
+                                <span class="skill-pct">80%</span>
+                            </div>
+                            <div class="skill-row">
+                                <span class="skill-name">React</span>
+                                <div class="skill-bar-wrap"><div class="skill-bar" style="--w:70%"></div></div>
+                                <span class="skill-pct">70%</span>
+                            </div>
+                            <div class="skill-row">
+                                <span class="skill-name">Node.js</span>
+                                <div class="skill-bar-wrap"><div class="skill-bar" style="--w:65%"></div></div>
+                                <span class="skill-pct">65%</span>
+                            </div>
+                            <div class="skill-row">
+                                <span class="skill-name">UI / UX</span>
+                                <div class="skill-bar-wrap"><div class="skill-bar" style="--w:85%"></div></div>
+                                <span class="skill-pct">85%</span>
+                            </div>
+                        </div>
+
+                        <div class="tags" style="margin-top:12px">
                             <span>RESPONSIVE</span>
-                            <span>UI/UX</span>
+                            <span>GIT</span>
+                            <span>FIGMA</span>
+                            <span>REST API</span>
                         </div>
 
                     </div>
-
                 </section>
 
                 <!-- CONTATO -->
                 <section class="view" id="contato">
-
                     <div class="page-box">
 
-                        <span class="hero-label">CONTACT</span>
-
+                        <span class="hero-label">// CONTACT</span>
                         <h2>Contato</h2>
 
-                        <p>
-                            github.com/fernandoaguiardev
-                        </p>
+                        <p>Aberto a projetos freelance, colaborações e oportunidades de trabalho.</p>
+
+                        <div class="contact-links">
+
+                            <a class="contact-card" href="https://github.com/fernandoaguiardev" target="_blank">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                                <div>
+                                    <strong>GitHub</strong>
+                                    <span>github.com/fernandoaguiardev</span>
+                                </div>
+                                <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+
+                            <a class="contact-card" href="mailto:fernandoaguiar@email.com">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                <div>
+                                    <strong>Email</strong>
+                                    <span>fernandoaguiar@email.com</span>
+                                </div>
+                                <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            </a>
+
+                        </div>
 
                     </div>
-
                 </section>
 
                 <!-- PROJECT VIEW -->
                 <section class="view project-view" id="project-screen">
-                    <iframe id="project-frame" src=""></iframe>
+                    <div class="iframe-wrapper">
+                        <div class="iframe-loading" id="iframe-loading">
+                            <div class="spinner"></div>
+                            <span>// LOADING PROJECT...</span>
+                        </div>
+                        <div class="iframe-error" id="iframe-error">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            <p>// ERROR: não foi possível carregar o projeto.</p>
+                            <button id="open-external-btn">Abrir no navegador</button>
+                        </div>
+                        <iframe id="project-frame" src="" title="Projeto"></iframe>
+                    </div>
                 </section>
 
             </section>
 
             <!-- BOTTOMBAR -->
             <footer class="bottombar">
-
-                <div class="sidebar-footer">
-                    <div class="status">
-                        <div class="status-dot"></div>
-                        AVAILABLE
-                    </div>
+                <div class="status status-bottom">
+                    <div class="status-dot"></div>
+                    <span>AVAILABLE</span>
                 </div>
-
-                <p id="workspace-path">
-                    workspace://home
-                </p>
-
+                <p id="workspace-path">workspace://home</p>
+                <div class="bottombar-right">
+                    <span id="clock"></span>
+                </div>
             </footer>
 
         </main>

@@ -2,63 +2,49 @@
    ELEMENTOS
 ======================================== */
 
-const pageButtons = document.querySelectorAll("[data-page]");
-const projectButtons = document.querySelectorAll("[data-project]");
-
-const views = document.querySelectorAll(".view");
-
-const workspacePath =
-    document.getElementById("workspace-path");
-
-const projectFrame =
-    document.getElementById("project-frame");
-
-const projectsToggle =
-    document.getElementById("projects-toggle");
-
-const projectsSubnav =
-    document.getElementById("projects-subnav");
+const pageButtons     = document.querySelectorAll("[data-page]");
+const projectButtons  = document.querySelectorAll("[data-project]");
+const views           = document.querySelectorAll(".view");
+const workspacePath   = document.getElementById("workspace-path");
+const projectFrame    = document.getElementById("project-frame");
+const projectsToggle  = document.getElementById("projects-toggle");
+const projectsSubnav  = document.getElementById("projects-subnav");
+const projectsChevron = document.getElementById("projects-chevron");
+const iframeLoading   = document.getElementById("iframe-loading");
+const iframeError     = document.getElementById("iframe-error");
+const openExternalBtn = document.getElementById("open-external-btn");
+const clock           = document.getElementById("clock");
 
 /* ========================================
    ROTAS DE PROJETOS
 ======================================== */
 
 const projectRoutes = {
-    "grupo-goncalves":
-        "https://grupogoncalves.vercel.app/",
-
-    "jogo-da-velha":
-        "./projetos/gamedavelha/index.html",
-
-    "calculadora-js":
-        "./projetos/calculadoraJs/index.html"
+    "grupo-goncalves": "https://grupogoncalves.vercel.app/",
+    "jogo-da-velha":   "./projetos/gamedavelha/index.html",
+    "calculadora-js":  "./projetos/calculadoraJs/index.html"
 };
+
+let currentProjectUrl = "";
 
 /* ========================================
    UTILITÁRIOS
 ======================================== */
 
 function removeActivePages() {
-    pageButtons.forEach(button => {
-        button.classList.remove("active");
-    });
+    pageButtons.forEach(btn => btn.classList.remove("active"));
 }
 
 function removeActiveProjects() {
-    projectButtons.forEach(button => {
-        button.classList.remove("active-project");
-    });
+    projectButtons.forEach(btn => btn.classList.remove("active-project"));
 }
 
 function hideViews() {
-    views.forEach(view => {
-        view.classList.remove("active-view");
-    });
+    views.forEach(view => view.classList.remove("active-view"));
 }
 
 function updatePath(path) {
-    workspacePath.textContent =
-        `workspace://${path}`;
+    workspacePath.textContent = `workspace://${path}`;
 }
 
 /* ========================================
@@ -66,96 +52,124 @@ function updatePath(path) {
 ======================================== */
 
 function openPage(pageId) {
-
     hideViews();
     removeActiveProjects();
 
-    const targetPage =
-        document.getElementById(pageId);
-
-    targetPage.classList.add("active-view");
+    const target = document.getElementById(pageId);
+    if (target) target.classList.add("active-view");
 
     updatePath(pageId);
 }
 
 /* ========================================
-   ABRIR PROJETO
+   ABRIR PROJETO (loading + fallback)
 ======================================== */
 
 function openProject(projectId) {
-
     hideViews();
     removeActivePages();
 
-    projectFrame.src =
-        projectRoutes[projectId];
+    const url = projectRoutes[projectId];
+    currentProjectUrl = url;
 
-    document
-        .getElementById("project-screen")
-        .classList.add("active-view");
+    iframeLoading.style.display = "flex";
+    iframeError.style.display   = "none";
+    projectFrame.src = "";
 
+    document.getElementById("project-screen").classList.add("active-view");
     updatePath(projectId);
+
+    const timeout = setTimeout(showProjectError, 8000);
+
+    projectFrame.onload = () => {
+        clearTimeout(timeout);
+        iframeLoading.style.display = "none";
+    };
+
+    projectFrame.onerror = () => {
+        clearTimeout(timeout);
+        showProjectError();
+    };
+
+    requestAnimationFrame(() => { projectFrame.src = url; });
 }
+
+function showProjectError() {
+    iframeLoading.style.display = "none";
+    iframeError.style.display   = "flex";
+}
+
+openExternalBtn.addEventListener("click", () => {
+    if (currentProjectUrl) window.open(currentProjectUrl, "_blank");
+});
 
 /* ========================================
    MENU PRINCIPAL
 ======================================== */
 
-pageButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const page =
-            button.dataset.page;
-
+pageButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
         removeActivePages();
-
-        button.classList.add("active");
-
-        openPage(page);
-
+        btn.classList.add("active");
+        openPage(btn.dataset.page);
     });
-
 });
 
 /* ========================================
    MENU PROJETOS
 ======================================== */
 
-projectButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        const project =
-            button.dataset.project;
-
+projectButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
         removeActiveProjects();
-
-        button.classList.add("active-project");
-
-        openProject(project);
-
+        btn.classList.add("active-project");
+        openProject(btn.dataset.project);
     });
-
 });
 
 /* ========================================
-   EXPANDIR SUBMENU
+   TOGGLE SUBMENU — bug fix
 ======================================== */
 
 let expanded = true;
 
-projectsToggle.addEventListener("click", () => {
+function setSubnav(open) {
+    expanded = open;
+    projectsSubnav.classList.toggle("collapsed", !open);
+    projectsChevron.classList.toggle("open", open);
+}
 
-    expanded = !expanded;
+projectsToggle.addEventListener("click", () => setSubnav(!expanded));
+setSubnav(true);
 
-    projectsSubnav.style.display =
-        expanded ? "flex" : "none";
+/* ========================================
+   RELÓGIO
+======================================== */
 
+function updateClock() {
+    const now = new Date();
+    clock.textContent =
+        `${String(now.getHours()).padStart(2,"0")}:${String(now.getMinutes()).padStart(2,"0")}`;
+}
+
+updateClock();
+setInterval(updateClock, 10000);
+
+/* ========================================
+   ATALHOS DE TECLADO
+======================================== */
+
+document.addEventListener("keydown", e => {
+    if (!e.altKey) return;
+    const map = { "1": "home", "2": "sobre", "3": "skills", "4": "contato" };
+    if (map[e.key]) {
+        e.preventDefault();
+        document.querySelector(`[data-page="${map[e.key]}"]`)?.click();
+    }
 });
 
 /* ========================================
-   INICIALIZAÇÃO
+   INIT
 ======================================== */
 
 openPage("home");
