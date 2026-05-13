@@ -5,7 +5,7 @@
 const pageButtons     = document.querySelectorAll("[data-page]");
 const projectButtons  = document.querySelectorAll("[data-project]");
 const views           = document.querySelectorAll(".view");
-const workspacePath   = document.getElementById("workspace-path");
+const topbarPath      = document.getElementById("topbar-path");
 const projectFrame    = document.getElementById("project-frame");
 const projectsToggle  = document.getElementById("projects-toggle");
 const projectsSubnav  = document.getElementById("projects-subnav");
@@ -14,6 +14,8 @@ const iframeLoading   = document.getElementById("iframe-loading");
 const iframeError     = document.getElementById("iframe-error");
 const openExternalBtn = document.getElementById("open-external-btn");
 const clock           = document.getElementById("clock");
+const sidebarToggle   = document.getElementById("sidebar-toggle");
+const sidebar         = document.getElementById("sidebar");
 
 /* ========================================
    ROTAS DE PROJETOS
@@ -44,7 +46,7 @@ function hideViews() {
 }
 
 function updatePath(path) {
-    workspacePath.textContent = `workspace://${path}`;
+    topbarPath.textContent = `workspace://${path}`;
 }
 
 /* ========================================
@@ -62,7 +64,7 @@ function openPage(pageId) {
 }
 
 /* ========================================
-   ABRIR PROJETO (loading + fallback)
+   ABRIR PROJETO
 ======================================== */
 
 function openProject(projectId) {
@@ -128,19 +130,30 @@ projectButtons.forEach(btn => {
 });
 
 /* ========================================
-   TOGGLE SUBMENU — bug fix
+   TOGGLE SUBMENU DE PROJETOS
 ======================================== */
 
-let expanded = true;
+let subnavExpanded = true;
 
 function setSubnav(open) {
-    expanded = open;
+    subnavExpanded = open;
     projectsSubnav.classList.toggle("collapsed", !open);
     projectsChevron.classList.toggle("open", open);
 }
 
-projectsToggle.addEventListener("click", () => setSubnav(!expanded));
+projectsToggle.addEventListener("click", () => setSubnav(!subnavExpanded));
 setSubnav(true);
+
+/* ========================================
+   TOGGLE SIDEBAR
+======================================== */
+
+let sidebarOpen = true;
+
+sidebarToggle.addEventListener("click", () => {
+    sidebarOpen = !sidebarOpen;
+    sidebar.classList.toggle("collapsed", !sidebarOpen);
+});
 
 /* ========================================
    RELÓGIO
@@ -165,6 +178,11 @@ document.addEventListener("keydown", e => {
     if (map[e.key]) {
         e.preventDefault();
         document.querySelector(`[data-page="${map[e.key]}"]`)?.click();
+    }
+    // Alt+B = toggle sidebar
+    if (e.key === "b") {
+        e.preventDefault();
+        sidebarToggle.click();
     }
 });
 
